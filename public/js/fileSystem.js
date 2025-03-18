@@ -1,5 +1,5 @@
 /**
- * File system related functionality
+ * File system related functionality for the frontend
  * Handles loading, displaying, and interacting with files
  */
 
@@ -10,7 +10,6 @@ import CONFIG from './config.js';
  * @param {string} fileType - Type of the file
  * @returns {string} - Icon emoji
  */
-
 function getFileIcon(fileType) {
     const icons = {
         'text': '📄',

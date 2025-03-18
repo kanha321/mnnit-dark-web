@@ -1,0 +1,72 @@
+/* Layout components */
+
+header {
+    background-color: var(--md-sys-color-primary);
+    color: #fff;
+    border-bottom: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 1em 2em;
+    transition: background-color 0.7s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2em auto;
+    background: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    padding: 2em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.7s ease;
+}
+
+footer {
+    text-align: center;
+    padding: 1em 2em;
+    background: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    border-top: 1px solid #ddd;
+    transition: background-color 0.7s ease;
+}
+
+/* Navigation */
+nav {
+    margin-left: 2em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    transition: background-color 0.3s;
+}
+
+nav ul li:hover {
+    background-color: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
+    border-radius: 4px;
+}
+
+/* Article styling */
+article {
+    border: 1px solid #ddd;
+    padding: 1em;
+    border-radius: 4px;
+    margin-bottom: 1em;
+}
+
+/* Current path display */
+#current-path {
+    padding: 0.5em 1em;
+    background-color: var(--md-sys-color-surface-variant);
+    border-radius: 8px;
+    margin-bottom: 1em;
+    color: var(--md-sys-color-on-surface-variant);
+}

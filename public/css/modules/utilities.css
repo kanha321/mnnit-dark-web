@@ -1,0 +1,47 @@
+/* Utility classes and states */
+
+/* Loading and error states */
+.loading, .empty-state, .error-state {
+    padding: 2em;
+    text-align: center;
+    border-radius: 8px;
+    margin: 1em 0;
+}
+
+.loading {
+    background-color: var(--md-sys-color-surface-container-low);
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.empty-state {
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+    padding: 3em;
+}
+
+.error-state {
+    background-color: var(--md-sys-color-error-container);
+    color: var(--md-sys-color-on-error-container);
+}
+
+/* Visibility utilities */
+.hidden {
+    display: none;
+}
+
+/* Flexbox utilities */
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}

@@ -1,0 +1,32 @@
+/* Theme-related styles and dark mode */
+
+/* Dark theme */
+.dark-theme {
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+}
+
+.dark-theme header {
+    background-color: var(--md-sys-color-primary);
+}
+
+.dark-theme main, 
+.dark-theme footer, 
+.dark-theme .file-item {
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+}
+
+.dark-theme #file-list {
+    background-color: var(--md-sys-color-surface);
+    border: 1px solid var(--md-sys-color-outline);
+}
+
+.dark-theme #product-list::-webkit-scrollbar-thumb {
+    background-color: var(--md-sys-color-primary);
+}
+
+/* Text file highlighting */
+.text-file {
+    border-left: 4px solid var(--md-sys-color-primary);
+}

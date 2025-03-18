@@ -1,0 +1,54 @@
+/* Media queries for responsive design */
+
+/* Mobile and tablet styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+    
+    main {
+        padding: 1em;
+    }
+    
+    #file-list {
+        flex-wrap: wrap;
+    }
+    
+    .file-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .file-icon {
+        margin-bottom: 0.5em;
+    }
+    
+    .file-action {
+        margin-top: 1em;
+        align-self: flex-end;
+    }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    main {
+        padding: 0.5em;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    main {
+        max-width: 1400px;
+    }
+}

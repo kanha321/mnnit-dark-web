@@ -1,0 +1,26 @@
+/* Base styles and resets */
+
+/* Note: CSS variables are defined in color-variables.css in the root directory */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    transition: background-color 0.7s ease;
+}
+
+/* Basic element styling */
+a {
+    color: var(--md-sys-color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Typography defaults */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+}
