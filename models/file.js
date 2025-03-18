@@ -5,10 +5,11 @@
 
 const fs = require('fs');
 const path = require('path');
-const { getFileType, formatFileSize } = require('../utils/fileUtils');
+const { getFileType, formatFileSize, getMimeType } = require('../utils/fileUtils');
 
-// Constants
-const FILES_DIR = path.join(__dirname, '../storage/files');
+// Update FILES_DIR to point to the root files directory
+const FILES_DIR = path.resolve(__dirname, '../files');
+console.log('Files directory path:', FILES_DIR); // Add logging for debugging
 
 /**
  * Ensures the files directory exists
@@ -16,7 +17,9 @@ const FILES_DIR = path.join(__dirname, '../storage/files');
 function ensureFilesDirectory() {
     if (!fs.existsSync(FILES_DIR)) {
         fs.mkdirSync(FILES_DIR, { recursive: true });
-        console.log('Created files directory');
+        console.log('Created files directory at:', FILES_DIR);
+    } else {
+        console.log('Using existing files directory at:', FILES_DIR);
     }
 }
 
@@ -41,10 +44,12 @@ function getAllFiles() {
                 try {
                     const stats = fs.statSync(path.join(FILES_DIR, fileName));
                     const fileType = getFileType(fileName);
+                    const mimeType = getMimeType(fileName);
                     
                     return {
                         name: fileName,
                         type: fileType,
+                        mimeType: mimeType,
                         size: formatFileSize(stats.size),
                         lastModified: new Date(stats.mtime).toISOString().split('T')[0]
                     };

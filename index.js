@@ -18,12 +18,34 @@ File.ensureFilesDirectory();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Add debug middleware with more detailed logging
+app.use((req, res, next) => {
+    console.log('\n=== Request Details ===');
+    console.log('Timestamp:', new Date().toISOString());
+    console.log('Method:', req.method);
+    console.log('URL:', req.url);
+    console.log('Original URL:', req.originalUrl);
+    console.log('Base URL:', req.baseUrl);
+    console.log('Path:', req.path);
+    console.log('Query:', req.query);
+    console.log('Headers:', req.headers);
+    console.log('===================\n');
+    next();
+});
+
 // Serve static files from both the root and public directories
 app.use(express.static(__dirname));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// Set up API routes
-app.use('/api', routes);
+// Add explicit file serving - this ensures files are accessible
+app.use('/files', express.static(path.join(__dirname, 'files')));
+console.log('Serving files from:', path.join(__dirname, 'files'));
+
+// Set up API routes with debug logging
+app.use('/api', (req, res, next) => {
+    console.log('[API] Route accessed:', req.url);
+    next();
+}, routes);
 
 // Serve the main HTML file for the root route
 app.get('/', (req, res) => {

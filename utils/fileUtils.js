@@ -2,6 +2,7 @@
  * Utility functions for file operations
  */
 const path = require('path');
+const mime = require('mime-types');
 
 /**
  * Determines the file type based on the file extension
@@ -59,7 +60,34 @@ function formatFileSize(bytes) {
     return parseFloat((bytes / Math.pow(1024, i)).toFixed(2)) + ' ' + units[i];
 }
 
+/**
+ * Check if a file is previewable based on its MIME type
+ * @param {string} fileName - Name of the file
+ * @returns {boolean} - True if file can be previewed
+ */
+function isPreviewable(fileName) {
+    const mimeType = mime.lookup(fileName) || 'application/octet-stream';
+    return mimeType.startsWith('text/') || 
+           [
+               'application/json',
+               'application/javascript',
+               'application/xml',
+               'application/x-httpd-php'
+           ].includes(mimeType);
+}
+
+/**
+ * Get MIME type for a file
+ * @param {string} fileName - Name of the file
+ * @returns {string} - MIME type of the file
+ */
+function getMimeType(fileName) {
+    return mime.lookup(fileName) || 'application/octet-stream';
+}
+
 module.exports = {
     getFileType,
-    formatFileSize
+    formatFileSize,
+    isPreviewable,
+    getMimeType
 };

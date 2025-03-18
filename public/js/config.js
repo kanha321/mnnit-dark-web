@@ -6,7 +6,8 @@
 const CONFIG = {
     apiEndpoints: {
         fileList: '/api/files',
-        download: '/api/files'
+        download: '/files',  // Points to static files directory
+        preview: '/files'    // Points to static files directory
     },
     selectors: {
         fileList: '#file-list',
@@ -19,7 +20,13 @@ const CONFIG = {
         errorState: 'error-state',
         fileItem: 'file-item',
         textFile: 'text-file',
-        darkTheme: 'dark-theme'
+        darkTheme: 'dark-theme',
+        previewDialog: 'preview-dialog'
+    },
+    cache: {
+        enabled: true,
+        maxSize: 1024 * 1024, // 1MB total cache size
+        maxFileSize: 100 * 1024 // 100KB max per file
     }
 };
 
