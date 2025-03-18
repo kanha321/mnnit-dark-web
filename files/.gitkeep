@@ -1,0 +1,2 @@
+# This file ensures the files directory is created and tracked by Git
+# but allows the directory to be empty

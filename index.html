@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNNIT's Dark Web</title>
+    <!-- CSS imports -->
+    <link rel="stylesheet" href="color-variables.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-theme">
+    <header>
+        <h1>MNNIT's Dark Web</h1>
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </header>
+    <main>
+        <h2>Available Resources</h2>
+        <section id="current-path">
+            <span>Server Files</span>
+        </section>
+        <!-- File list populated by JavaScript -->
+        <section id="file-list"></section>
+        
+        <!-- Enhanced file content preview section -->
+        <section id="file-preview-container" class="hidden">
+            <div class="preview-header">
+                <h3 id="preview-filename">File Preview</h3>
+                <button id="close-preview">Close</button>
+            </div>
+            <!-- Media previews will be inserted here -->
+            <pre id="file-content"></pre>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 MNNIT's Dark Web - Share Files Securely</p>
+    </footer>
+    <!-- JavaScript imports -->
+    <script type="module" src="public/js/app.js"></script>
+</body>
+</html>
