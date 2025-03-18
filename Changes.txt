@@ -18,3 +18,8 @@
 [20:04:24.35 Tue 03/18/2025] add instant preview with caching 
 ------------------ Committed d8ec162 to branch main ------------------ 
  
+[21:09:33.59 Tue 03/18/2025] add expandable card to show preview; fix theme 
+------------------ Committed d2eab82 to branch main ------------------ 
+ 
+[21:09:44.34 Tue 03/18/2025] Pushed to branch main 
+ 

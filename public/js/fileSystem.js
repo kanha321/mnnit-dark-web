@@ -54,24 +54,47 @@ function renderFileItem(file, container) {
     const fileItem = document.createElement('div');
     fileItem.classList.add(CONFIG.cssClasses.fileItem);
     
-    // Add a special class for text files
     if (file.type === 'text' || file.type === 'code') {
         fileItem.classList.add(CONFIG.cssClasses.textFile);
     }
     
     fileItem.innerHTML = `
-        <div class="file-icon">${getFileIcon(file.type)}</div>
-        <div class="file-details">
-            <h3>${file.name}</h3>
-            <p>Size: ${file.size} | Modified: ${file.lastModified}</p>
+        <div class="file-item-header">
+            <div class="file-icon">${getFileIcon(file.type)}</div>
+            <div class="file-details">
+                <h3>${file.name}</h3>
+                <p>Size: ${file.size} | Modified: ${file.lastModified}</p>
+            </div>
+            <div class="file-actions">
+                <button class="file-action" data-name="${file.name}">Download</button>
+            </div>
         </div>
-        <div class="file-actions">
-            ${isPreviewable(file.type) ? 
-                `<button class="file-preview" data-name="${file.name}">Preview</button>` : ''}
-            <button class="file-action" data-name="${file.name}">Download</button>
-        </div>
+        ${isPreviewable(file.type) ? '<div class="file-preview-content"><pre class="loading">Loading preview...</pre></div>' : ''}
     `;
     container.appendChild(fileItem);
+
+    // Load preview content for previewable files
+    if (isPreviewable(file.type)) {
+        loadPreviewContent(file.name, fileItem.querySelector('.file-preview-content'));
+    }
+}
+
+async function loadPreviewContent(fileName, container) {
+    try {
+        const content = await getFileContent(fileName);
+        const escapedContent = content.replace(/[&<>"']/g, char => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        }[char]));
+        
+        container.innerHTML = `<pre>${escapedContent}</pre>`;
+    } catch (error) {
+        console.error('Preview error:', error);
+        container.innerHTML = `<div class="error-state">Error loading preview</div>`;
+    }
 }
 
 function isPreviewable(fileType) {

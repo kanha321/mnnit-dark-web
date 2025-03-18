@@ -20,7 +20,7 @@ const CONFIG = {
         errorState: 'error-state',
         fileItem: 'file-item',
         textFile: 'text-file',
-        darkTheme: 'dark-theme',
+        darkTheme: 'dark',  // Changed from dark-theme to dark
         previewDialog: 'preview-dialog'
     },
     cache: {

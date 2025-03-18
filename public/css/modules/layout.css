@@ -1,12 +1,12 @@
 /* Layout components */
 
 header {
-    background-color: var(--md-sys-color-primary);
-    color: #fff;
+    background-color: var(--md-sys-color-surface-container);
+    color: var(--md-sys-color-on-surface);
+    box-shadow: var(--md-sys-elevation-level2);
     border-bottom: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     padding: 1em 2em;
-    transition: background-color 0.7s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,7 +18,7 @@ main {
     background: var(--md-sys-color-surface);
     color: var(--md-sys-color-on-surface);
     padding: 2em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: var(--md-sys-elevation-level1);
     transition: background-color 0.7s ease;
 }
 
@@ -65,7 +65,7 @@ article {
 /* Current path display */
 #current-path {
     padding: 0.5em 1em;
-    background-color: var(--md-sys-color-surface-variant);
+    background-color: var(--md-sys-color-surface-container-low);
     border-radius: 8px;
     margin-bottom: 1em;
     color: var(--md-sys-color-on-surface-variant);

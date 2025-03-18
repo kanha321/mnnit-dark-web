@@ -12,17 +12,17 @@ import FileSystem from './fileSystem.js';
 function setupThemeToggle() {
     const themeToggle = document.querySelector(CONFIG.selectors.themeToggle);
     themeToggle.addEventListener('change', () => {
-        document.body.classList.toggle(CONFIG.cssClasses.darkTheme);
+        document.body.classList.toggle('dark'); // Changed from dark-theme to dark
         
         // Save preference to localStorage
-        const isDarkMode = document.body.classList.contains(CONFIG.cssClasses.darkTheme);
+        const isDarkMode = document.body.classList.contains('dark');
         localStorage.setItem('darkMode', isDarkMode);
     });
     
     // Load saved preference
     const savedDarkMode = localStorage.getItem('darkMode') === 'true';
     if (savedDarkMode) {
-        document.body.classList.add(CONFIG.cssClasses.darkTheme);
+        document.body.classList.add('dark');
         themeToggle.checked = true;
     }
 }

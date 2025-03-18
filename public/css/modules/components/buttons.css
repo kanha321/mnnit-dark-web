@@ -1,0 +1,33 @@
+/* Button component styles */
+
+.file-action {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    box-shadow: var(--md-sys-elevation-level1);
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.file-action:hover {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    box-shadow: var(--md-sys-elevation-level2);
+    transform: scale(1.05);
+}
+
+.file-action:active {
+    transform: scale(0.95);
+}
+
+.file-preview {
+    background: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+}
+
+.file-preview:hover {
+    background: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
+}

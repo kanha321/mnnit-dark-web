@@ -1,5 +1,11 @@
 /* Theme-related styles and dark mode */
 
+:root {
+    --md-sys-elevation-level1: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+    --md-sys-elevation-level2: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+    --md-sys-elevation-level3: 0 1px 3px rgba(0,0,0,0.3), 0 4px 8px 3px rgba(0,0,0,0.15);
+}
+
 /* Dark theme */
 .dark-theme {
     background-color: var(--md-sys-color-surface);
@@ -8,6 +14,7 @@
 
 .dark-theme header {
     background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
 }
 
 .dark-theme main, 
@@ -15,6 +22,16 @@
 .dark-theme .file-item {
     background-color: var(--md-sys-color-surface);
     color: var(--md-sys-color-on-surface);
+}
+
+.dark-theme .file-item {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+}
+
+.dark-theme .file-item:hover {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
 }
 
 .dark-theme #file-list {
@@ -29,4 +46,13 @@
 /* Text file highlighting */
 .text-file {
     border-left: 4px solid var(--md-sys-color-primary);
+}
+
+/* Preserve existing theme classes but update colors to match MD3 */
+.dark .file-item {
+    background-color: var(--md-sys-color-surface-container-low);
+}
+
+.dark .file-item:hover {
+    background-color: var(--md-sys-color-surface-container);
 }

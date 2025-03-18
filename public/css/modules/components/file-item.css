@@ -1,0 +1,55 @@
+/* File item component styles */
+
+.file-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: var(--md-sys-elevation-level1);
+    background-color: var(--md-sys-color-surface-container-low);
+    color: var(--md-sys-color-on-surface);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: auto;
+    transform-origin: center;
+    will-change: transform, box-shadow, padding, margin;
+}
+
+.file-item-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.file-item:hover {
+    transform: scale(1.01);
+    box-shadow: var(--md-sys-elevation-level2);
+    background-color: var(--md-sys-color-surface-container);
+    padding: 1.2em;
+    margin: 0.3em 0;
+}
+
+/* File icon */
+.file-icon {
+    font-size: 2em;
+    margin-right: 1em;
+}
+
+/* File details */
+.file-details {
+    flex-grow: 1;
+}
+
+.file-details h3 {
+    margin: 0;
+    margin-bottom: 0.25em;
+    color: inherit;
+}
+
+.file-details p {
+    margin: 0;
+    color: inherit;
+    font-size: 0.9em;
+    opacity: 0.8;
+}

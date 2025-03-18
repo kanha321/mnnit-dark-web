@@ -1,0 +1,26 @@
+/* File preview component styles */
+
+.file-preview-content {
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 0;
+    overflow: hidden;
+}
+
+.file-preview-content pre {
+    margin: 0;
+    padding: 1em;
+    background: var(--md-sys-color-surface-container);
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9em;
+    line-height: 1.4;
+    overflow-x: auto;
+}
+
+.file-item:hover .file-preview-content {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 1em;
+}
