@@ -9,25 +9,29 @@ import UI from './ui.js';
 // File content cache
 const fileCache = new Map();
 
+// Simplified file icons map
+const FILE_ICONS = {
+    text: '📄',
+    code: '💻',
+    python: '🐍',
+    java: '☕',
+    cpp: '🔧',
+    web: '🌐',
+    data: '📊',
+    pdf: '📚',
+    archive: '📦'
+};
+
+// Simplified previewable types
+const PREVIEWABLE_TYPES = ['text', 'code', 'web', 'python', 'java', 'cpp', 'data'];
+
 /**
  * Returns appropriate icon based on file type
  * @param {string} fileType - Type of the file
  * @returns {string} - Icon emoji
  */
 function getFileIcon(fileType) {
-    const icons = {
-        'text': '📄',
-        'code': '💻',
-        'python': '🐍',
-        'java': '☕',
-        'cpp': '🔧',
-        'web': '🌐',
-        'data': '📊',
-        'pdf': '📚',
-        'archive': '📦'
-    };
-    
-    return icons[fileType] || '📄';
+    return FILE_ICONS[fileType] || FILE_ICONS.text;
 }
 
 /**
@@ -58,15 +62,26 @@ function renderFileItem(file, container) {
         fileItem.classList.add(CONFIG.cssClasses.textFile);
     }
     
+    const actionButtons = `
+        <div class="action-stack">
+            ${isPreviewable(file.type) ? `
+                <button class="file-action copy-preview" data-name="${file.name}">Copy</button>
+            ` : ''}
+            <button class="file-action primary-action" data-name="${file.name}">Download</button>
+        </div>
+    `;
+
     fileItem.innerHTML = `
         <div class="file-item-header">
-            <div class="file-icon">${getFileIcon(file.type)}</div>
-            <div class="file-details">
-                <h3>${file.name}</h3>
-                <p>Size: ${file.size} | Modified: ${file.lastModified}</p>
+            <div class="file-details-group">
+                <div class="file-icon">${getFileIcon(file.type)}</div>
+                <div class="file-details">
+                    <h3>${file.name}</h3>
+                    <p>Size: ${file.size} | Modified: ${file.lastModified}</p>
+                </div>
             </div>
             <div class="file-actions">
-                <button class="file-action" data-name="${file.name}">Download</button>
+                ${actionButtons}
             </div>
         </div>
         ${isPreviewable(file.type) ? '<div class="file-preview-content"><pre class="loading">Loading preview...</pre></div>' : ''}
@@ -97,8 +112,13 @@ async function loadPreviewContent(fileName, container) {
     }
 }
 
+/**
+ * Checks if a file type is previewable
+ * @param {string} fileType - Type of the file
+ * @returns {boolean} - True if previewable, false otherwise
+ */
 function isPreviewable(fileType) {
-    return ['text', 'code', 'web', 'python', 'java', 'cpp', 'data'].includes(fileType);
+    return PREVIEWABLE_TYPES.includes(fileType);
 }
 
 /**
@@ -114,14 +134,36 @@ function downloadFile(event) {
  * Attaches event listeners to file action buttons
  */
 function attachEventListeners() {
-    document.querySelectorAll('.file-action').forEach(btn => {
+    document.querySelectorAll('.primary-action').forEach(btn => {
         btn.addEventListener('click', downloadFile);
     });
-    
-    document.querySelectorAll('.file-preview').forEach(btn => {
-        btn.addEventListener('click', (event) => {
+
+    document.querySelectorAll('.copy-preview').forEach(btn => {
+        btn.removeEventListener('click', downloadFile);  // Remove default download handler
+        btn.addEventListener('click', async (event) => {
+            event.preventDefault();  // Prevent any default action
+            event.stopPropagation(); // Stop event bubbling
+            
             const fileName = event.target.getAttribute('data-name');
-            UI.showPreview(fileName);
+            try {
+                const content = await getFileContent(fileName);
+                await navigator.clipboard.writeText(content);
+                
+                // Show feedback
+                const originalText = btn.textContent;
+                const originalBg = btn.style.backgroundColor;
+                btn.textContent = 'Copied!';
+                btn.style.backgroundColor = 'var(--md-sys-color-secondary)';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.backgroundColor = originalBg;
+                }, 2000);
+            } catch (error) {
+                console.error('Error copying content:', error);
+                btn.textContent = 'Error!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
+            }
         });
     });
 }

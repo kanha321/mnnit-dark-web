@@ -12,5 +12,4 @@ import UI from './ui.js';
 document.addEventListener('DOMContentLoaded', () => {
     FileSystem.loadFiles();
     UI.setupThemeToggle();
-    UI.updatePathDisplay();
 });

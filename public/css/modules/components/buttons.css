@@ -8,7 +8,10 @@
     padding: 0.5em 1em;
     cursor: pointer;
     border-radius: 20px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 
+        background-color var(--animation-duration) var(--animation-easing),
+        transform var(--animation-duration) var(--animation-easing),
+        box-shadow var(--animation-duration) var(--animation-easing);
 }
 
 .file-action:hover {
@@ -30,4 +33,70 @@
 .file-preview:hover {
     background: var(--md-sys-color-secondary);
     color: var(--md-sys-color-on-secondary);
+}
+
+.action-stack {
+    position: relative;
+    display: flex;
+    gap: 0.5em;
+    transform-origin: right center;
+    transition: var(--transition-all);
+}
+
+.action-stack .file-action {
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    transform-origin: right center;
+    transform: translateX(30px) scale(0.95);
+    pointer-events: none;
+    transition: var(--transition-all);
+    z-index: 1;
+}
+
+.action-stack .primary-action {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.file-item:hover .action-stack .file-action {
+    position: relative;
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: auto;
+    transition-delay: 0.05s;
+}
+
+.file-item:not(:hover) .action-stack .file-action {
+    transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+    transform: translateX(30px) scale(0.95);
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.file-item:not(:hover) .action-stack .copy-preview {
+    transition-delay: 0s;
+}
+
+.file-action.copy-preview {
+    background: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+    transition-delay: 0.1s;
+}
+
+/* Make buttons more touch-friendly */
+@media (hover: none) {
+    .action-stack .file-action {
+        opacity: 1;
+        position: static;
+        transform: none;
+        pointer-events: auto;
+    }
+    
+    .file-action {
+        min-height: 40px; /* Minimum touch target size */
+    }
 }

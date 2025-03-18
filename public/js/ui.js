@@ -11,6 +11,15 @@ import FileSystem from './fileSystem.js';
  */
 function setupThemeToggle() {
     const themeToggle = document.querySelector(CONFIG.selectors.themeToggle);
+    
+    // Remove the no-transition class after load
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.documentElement.classList.remove('no-transition');
+            document.body.classList.remove('no-transition');
+        }, 100);
+    });
+    
     themeToggle.addEventListener('change', () => {
         document.body.classList.toggle('dark'); // Changed from dark-theme to dark
         
@@ -119,6 +128,5 @@ function getMimeTypeClass(mimeType) {
 
 export default {
     setupThemeToggle,
-    updatePathDisplay,
     showPreview
 };

@@ -64,9 +64,5 @@ article {
 
 /* Current path display */
 #current-path {
-    padding: 0.5em 1em;
-    background-color: var(--md-sys-color-surface-container-low);
-    border-radius: 8px;
-    margin-bottom: 1em;
-    color: var(--md-sys-color-on-surface-variant);
+    display: none;
 }

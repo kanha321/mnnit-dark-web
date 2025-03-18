@@ -1,9 +1,24 @@
 /* Theme-related styles and dark mode */
 
+/* Theme system */
 :root {
-    --md-sys-elevation-level1: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
-    --md-sys-elevation-level2: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
-    --md-sys-elevation-level3: 0 1px 3px rgba(0,0,0,0.3), 0 4px 8px 3px rgba(0,0,0,0.15);
+    /* Common elevations */
+    --elevation-1: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+    --elevation-2: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+    --elevation-3: 0 1px 3px rgba(0,0,0,0.3), 0 4px 8px 3px rgba(0,0,0,0.15);
+    
+    /* Simplified transitions */
+    --transition-standard: 0.3s ease;
+    --animation-duration: 0.3s;
+    --animation-easing: ease;
+    
+    /* Common transitions */
+    --transition-all: all var(--animation-duration) var(--animation-easing);
+    
+    /* Remove separate text color transition variables */
+    --md-sys-elevation-level1: var(--elevation-1);
+    --md-sys-elevation-level2: var(--elevation-2);
+    --md-sys-elevation-level3: var(--elevation-3);
 }
 
 /* Dark theme */

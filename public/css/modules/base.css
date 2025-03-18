@@ -1,19 +1,28 @@
-/* Base styles and resets */
+:root {
+    --text-transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --text-color-transition: color 0.3s var(--animation-easing);
+}
 
-/* Note: CSS variables are defined in color-variables.css in the root directory */
-
+/* Base styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: var(--md-sys-color-surface);
     color: var(--md-sys-color-on-surface);
-    transition: background-color 0.7s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* No transition during initial load */
+.no-transition * {
+    transition: none !important;
+}
+
+/* Remove global text transition */
 /* Basic element styling */
 a {
     color: var(--md-sys-color-primary);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {

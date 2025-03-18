@@ -1,55 +1,263 @@
 /* File item component styles */
 
+/* Simplify transitions */
+.file-item {
+    transition: 
+        background-color var(--animation-duration) var(--animation-easing),
+        box-shadow var(--animation-duration) var(--animation-easing),
+        transform var(--animation-duration) var(--animation-easing),
+        padding var(--animation-duration) var(--animation-easing),
+        margin var(--animation-duration) var(--animation-easing);
+    margin-bottom: 0.75em;
+    border: 1px solid var(--md-sys-color-outline-variant);
+    min-height: 70px;
+    width: 100%;
+}
+
+.file-details h3,
+.file-details p {
+    color: inherit; /* Ensure text inherits color properly */
+    transition: transform var(--animation-duration) var (--animation-easing),
+                opacity var(--animation-duration) var(--animation-easing),
+                font-size var(--animation-duration) var(--animation-easing);
+}
+
 .file-item {
     display: flex;
     flex-direction: column;
     padding: 1em;
     border-radius: 8px;
-    box-shadow: var(--md-sys-elevation-level1);
+    box-shadow: var(--elevation-1);
     background-color: var(--md-sys-color-surface-container-low);
     color: var(--md-sys-color-on-surface);
     position: relative;
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    height: auto;
+    transition: var(--transition-all);
+    height: fit-content;
     transform-origin: center;
-    will-change: transform, box-shadow, padding, margin;
+    will-change: transform, box-shadow, background-color;
 }
 
 .file-item-header {
     display: flex;
     align-items: center;
     width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.file-details-group {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.file-actions {
+    margin-left: auto;
+    padding-left: 2em;
+    display: flex;
+    align-items: center;
+    min-width: 120px;
+    justify-content: flex-end;
 }
 
 .file-item:hover {
     transform: scale(1.01);
-    box-shadow: var(--md-sys-elevation-level2);
+    box-shadow: var(--elevation-2);
     background-color: var(--md-sys-color-surface-container);
     padding: 1.2em;
-    margin: 0.3em 0;
+    margin: 0.2em 0;
+    transition-timing-function: cubic-bezier(0.3, 0, 0, 1);
+}
+
+.file-item:hover,
+.file-item:not(:hover) {
+    transition: var(--transition-all);
 }
 
 /* File icon */
 .file-icon {
     font-size: 2em;
-    margin-right: 1em;
+    margin-right: 0.5em; /* Reduced from 1em */
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 40px; /* Added to maintain consistent height */
 }
 
 /* File details */
 .file-details {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center align content vertically */
+    min-height: 40px; /* Match icon height */
+    padding: 0.2em 0; /* Add slight padding for breathing room */
 }
 
 .file-details h3 {
     margin: 0;
     margin-bottom: 0.25em;
     color: inherit;
+    font-size: 1.1em;
+    transition: var(--transition-all);
+    transform: translateY(0); /* Slight adjustment to align with icon */
+    line-height: 1.2;
+    will-change: transform, font-size;
 }
 
 .file-details p {
     margin: 0;
     color: inherit;
     font-size: 0.9em;
-    opacity: 0.8;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transform-origin: top left;
+    transition: var(--transition-all);
+    will-change: transform, opacity;
+    height: auto;
+    max-height: 50px;  /* Explicit height for animation */
+}
+
+.file-item:hover .file-details h3 {
+    font-size: 1.3em;
+    transform: translateY(0.15em);
+}
+
+.file-item:hover .file-details p {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+    max-height: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Only apply text hiding animation when preview is available */
+.file-item:has(.file-preview-content) .file-details p {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    max-height: 50px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.file-item:has(.file-preview-content):hover .file-details p {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+    max-height: 0;
+    margin: 0;
+}
+
+/* Keep text visible for non-previewable files */
+.file-item:not(:has(.file-preview-content)):hover .file-details p {
+    opacity: 1;
+    transform: none;
+    max-height: 50px;
+    margin: initial;
+}
+
+.file-item:hover .file-icon {
+    transform: scale(1.15);
+}
+
+.file-preview-content {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(0);
+    transition: var(--transition-all);
+    will-change: transform, max-height, opacity;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+    padding-top: 0.75em;
+    margin-top: 0.5em;
+}
+
+.file-item:hover .file-preview-content {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 250px;
+    margin-top: 0.75em;
+}
+
+/* Only apply animations for previewable files */
+.file-item:not(:has(.file-preview-content)) {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.file-item:not(:has(.file-preview-content)):hover {
+    transform: scale(1.01);
+    margin: 0;
+    padding: 1em;
+}
+
+.file-item:not(:has(.file-preview-content)) .file-details h3,
+.file-item:not(:has(.file-preview-content)) .file-details p {
+    transform: none;
+    transition: none;
+    font-size: inherit;
+}
+
+.file-item:not(:has(.file-preview-content)):hover .file-icon {
+    transform: none;
+}
+
+.file-item:not(:has(.file-preview-content)) .file-details h3 {
+    transform: none;
+    transition: none;
+    font-size: 1.1em !important; /* Force constant font size */
+}
+
+.file-item:not(:has(.file-preview-content)):hover .file-details h3 {
+    font-size: 1.1em !important; /* Force constant font size on hover */
+    transform: none;
+}
+
+.file-item:not(:has(.file-preview-content)) .file-details p {
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+
+.file-item:not(:has(.file-preview-content)):hover .file-details h3 {
+    font-size: 1.1em;
+    transform: none;
+}
+
+.file-item:not(:has(.file-preview-content)):hover .file-details p {
+    opacity: 1;
+    transform: none;
+    max-height: initial;
+    margin: initial;
+}
+
+/* Specific text transitions for both previewable and non-previewable files */
+.file-item .file-details h3,
+.file-item .file-details p {
+    /* Remove color from specific transitions */
+    transition: transform var(--animation-duration) var(--animation-easing),
+                opacity var(--animation-duration) var(--animation-easing),
+                font-size var(--animation-duration) var(--animation-easing),
+                max-height var(--animation-duration) var(--animation-easing);
+    color: inherit; /* Ensure text color is consistently inherited */
+}
+
+/* Override the specific animation transitions for previewable items */
+.file-item:has(.file-preview-content) .file-details p {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    max-height: 50px;
+    /* Don't include color in this transition to let body handle theme change */
+    transition: transform var(--animation-duration) var(--animation-easing),
+                opacity var(--animation-duration) var(--animation-easing),
+                max-height var(--animation-duration) var(--animation-easing);
+}
+
+/* Override the non-previewable styles to prevent any text color transition */
+.file-item:not(:has(.file-preview-content)) .file-details h3,
+.file-item:not(:has(.file-preview-content)) .file-details p {
+    transform: none;
+    /* Don't completely disable transitions, just specific properties */
+    transition: none;
 }

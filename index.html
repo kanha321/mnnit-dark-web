@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MNNIT's Dark Web</title>
     <!-- CSS imports -->
     <link rel="stylesheet" href="color-variables.css">
     <link rel="stylesheet" href="styles.css">
+    <script>
+        // Prevent transitions during initial load
+        document.documentElement.classList.add('no-transition');
+    </script>
 </head>
-<body class="light">
+<body class="light no-transition">
     <header>
         <h1>MNNIT's Dark Web</h1>
         <label class="switch">
@@ -18,14 +22,11 @@
     </header>
     <main>
         <h2>Available Resources</h2>
-        <section id="current-path">
-            <span>Server Files</span>
-        </section>
         <!-- File list populated by JavaScript -->
         <section id="file-list"></section>
     </main>
     <footer>
-        <p>&copy; 2023 MNNIT's Dark Web - Share Files Securely</p>
+        <p>&copy; 2025 MNNIT's Dark Web - Share Files Securely</p>
     </footer>
     <!-- JavaScript imports -->
     <script type="module" src="public/js/app.js"></script>
