@@ -4,7 +4,6 @@
  */
 
 import CONFIG from './config.js';
-import PreviewManager from './previewManager.js';
 
 /**
  * Sets up theme toggle functionality
@@ -35,17 +34,7 @@ function updatePathDisplay() {
     currentPath.innerHTML = `<span>Path: /files/</span>`;
 }
 
-/**
- * Sets up the close preview button
- */
-function setupClosePreview() {
-    document.querySelector(CONFIG.selectors.closePreview).addEventListener('click', () => {
-        PreviewManager.closePreview();
-    });
-}
-
 export default {
     setupThemeToggle,
-    updatePathDisplay,
-    setupClosePreview
+    updatePathDisplay
 };

@@ -59,58 +59,7 @@ function formatFileSize(bytes) {
     return parseFloat((bytes / Math.pow(1024, i)).toFixed(2)) + ' ' + units[i];
 }
 
-/**
- * Checks if a file is a text file that can be previewed
- * @param {string} fileName - Name of the file
- * @returns {boolean} - True if the file is a text file
- */
-function isTextFile(fileName) {
-    const ext = path.extname(fileName).toLowerCase();
-    const textFileExts = [
-        '.txt', '.md', '.json', '.js', '.html', 
-        '.css', '.csv', '.xml', '.log', '.sh', 
-        '.py', '.c', '.cpp', '.java', '.ts',
-        '.jsx', '.tsx', '.yml', '.yaml', '.ini',
-        '.config', '.php', '.rb', '.go', '.rs'
-    ];
-    
-    return textFileExts.includes(ext);
-}
-
-/**
- * Checks if a file is previewable in the browser
- * @param {string} fileName - Name of the file
- * @returns {boolean} - True if the file can be previewed
- */
-function isPreviewable(fileName) {
-    const ext = path.extname(fileName).toLowerCase();
-    
-    // File types that can be previewed in a browser
-    const previewableExts = [
-        // Text files
-        '.txt', '.md', '.json', '.js', '.html', '.css', '.csv', '.xml', 
-        '.log', '.sh', '.py', '.c', '.cpp', '.java', '.ts', '.jsx', 
-        '.tsx', '.yml', '.yaml', '.ini', '.config', '.php', '.rb', '.go', '.rs',
-        
-        // Images
-        '.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.webp',
-        
-        // PDFs
-        '.pdf',
-        
-        // Audio
-        '.mp3', '.wav', '.ogg',
-        
-        // Video
-        '.mp4', '.webm'
-    ];
-    
-    return previewableExts.includes(ext);
-}
-
 module.exports = {
     getFileType,
-    formatFileSize,
-    isTextFile,
-    isPreviewable
+    formatFileSize
 };

@@ -13,5 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
     FileSystem.loadFiles();
     UI.setupThemeToggle();
     UI.updatePathDisplay();
-    UI.setupClosePreview();
 });

@@ -4,7 +4,6 @@
  */
 
 import CONFIG from './config.js';
-import PreviewManager from './previewManager.js';
 
 /**
  * Returns appropriate icon based on file type
@@ -64,8 +63,6 @@ function renderFileItem(file, container) {
             <p>Size: ${file.size} | Modified: ${file.lastModified}</p>
         </div>
         <div class="file-actions">
-            ${file.previewable ? 
-                `<button class="file-preview" data-name="${file.name}">Preview</button>` : ''}
             <button class="file-action" data-name="${file.name}">Download</button>
         </div>
     `;
@@ -82,24 +79,11 @@ function downloadFile(event) {
 }
 
 /**
- * Previews a file
- * @param {Event} event - Click event
- */
-function previewFile(event) {
-    const fileName = event.target.getAttribute('data-name');
-    PreviewManager.openPreview(fileName);
-}
-
-/**
  * Attaches event listeners to file action buttons
  */
 function attachEventListeners() {
     document.querySelectorAll('.file-action').forEach(btn => {
         btn.addEventListener('click', downloadFile);
-    });
-    
-    document.querySelectorAll('.file-preview').forEach(btn => {
-        btn.addEventListener('click', previewFile);
     });
 }
 
@@ -148,6 +132,5 @@ export default {
     loadFiles,
     getFileIcon,
     renderFileItem,
-    downloadFile,
-    previewFile
+    downloadFile
 };

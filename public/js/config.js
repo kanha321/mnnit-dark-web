@@ -6,19 +6,12 @@
 const CONFIG = {
     apiEndpoints: {
         fileList: '/api/files',
-        download: '/api/files',
-        previewInfo: '/api/preview-info',
-        previewContent: '/api/preview-content'
+        download: '/api/files'
     },
     selectors: {
         fileList: '#file-list',
-        previewContainer: '#file-preview-container',
-        fileContent: '#file-content',
-        previewFilename: '#preview-filename',
         currentPath: '#current-path',
-        closePreview: '#close-preview',
-        themeToggle: '#theme-toggle',
-        previewMedia: '#preview-media'
+        themeToggle: '#theme-toggle'
     },
     cssClasses: {
         loading: 'loading',
@@ -26,17 +19,7 @@ const CONFIG = {
         errorState: 'error-state',
         fileItem: 'file-item',
         textFile: 'text-file',
-        hidden: 'hidden',
-        darkTheme: 'dark-theme',
-        previewActive: 'preview-active'
-    },
-    previewTypes: {
-        text: 'text',
-        image: 'image',
-        pdf: 'pdf',
-        audio: 'audio',
-        video: 'video',
-        other: 'other'
+        darkTheme: 'dark-theme'
     }
 };
 
