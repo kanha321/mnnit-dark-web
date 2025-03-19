@@ -1,0 +1,355 @@
+{
+  "fileTypes": {
+    "text": {
+      "icon": "\uf15c",
+      "extensions": [".txt", ".text", ".log", ".out"]
+    },
+    "markdown": {
+      "icon": "\ue73e",
+      "extensions": [".md", ".markdown", ".mdown", ".mkd"]
+    },
+    "javascript": {
+      "icon": "\ue781",
+      "extensions": [".js", ".mjs", ".cjs"]
+    },
+    "typescript": {
+      "icon": "\ue628",
+      "extensions": [".ts", ".tsx", ".mts", ".cts"]
+    },
+    "jsx": {
+      "icon": "\ue7ba",
+      "extensions": [".jsx"]
+    },
+    "html": {
+      "icon": "\uf13b",
+      "extensions": [".html", ".htm", ".xhtml", ".shtml"]
+    },
+    "css": {
+      "icon": "\ue749",
+      "extensions": [".css"]
+    },
+    "scss": {
+      "icon": "\ue603",
+      "extensions": [".scss", ".sass"]
+    },
+    "less": {
+      "icon": "\ue758",
+      "extensions": [".less"]
+    },
+    "python": {
+      "icon": "\ue73c",
+      "extensions": [".py", ".pyw", ".pyc", ".pyo", ".pyd", ".ipynb"]
+    },
+    "java": {
+      "icon": "\ue738",
+      "extensions": [".java", ".jar", ".class", ".jsp"]
+    },
+    "cpp": {
+      "icon": "\ue61d",
+      "extensions": [".c", ".cpp", ".cc", ".cxx", ".h", ".hpp", ".hxx", ".hh"]
+    },
+    "csharp": {
+      "icon": "\ue70c",  
+      "extensions": [".cs", ".csx"]
+    },
+    "go": {
+      "icon": "\ue724",
+      "extensions": [".go"]
+    },
+    "rust": {
+      "icon": "\ue7a8",
+      "extensions": [".rs", ".rlib"]
+    },
+    "php": {
+      "icon": "\ue73d",
+      "extensions": [".php", ".phtml", ".php5", ".php7", ".phps"]
+    },
+    "ruby": {
+      "icon": "\ue739",
+      "extensions": [".rb", ".erb", ".gemspec", ".rake", ".rakefile"]
+    },
+    "swift": {
+      "icon": "\ue755",
+      "extensions": [".swift"]
+    },
+    "kotlin": {
+      "icon": "\ue634",
+      "extensions": [".kt", ".kts"]
+    },
+    "scala": {
+      "icon": "\ue737",
+      "extensions": [".scala", ".sc"]
+    },
+    "shell": {
+      "icon": "\ue795",
+      "extensions": [".sh", ".bash", ".zsh", ".fish"]
+    },
+    "powershell": {
+      "icon": "\uf489",
+      "extensions": [".ps1", ".psm1", ".psd1", ".ps1xml"]
+    },
+    "lua": {
+      "icon": "\ue620",
+      "extensions": [".lua"]
+    },
+    "perl": {
+      "icon": "\ue769",
+      "extensions": [".pl", ".pm", ".t"]
+    },
+    "r": {
+      "icon": "\uf25d",
+      "extensions": [".r", ".R", ".Rmd", ".Rproj"]
+    },
+    "dart": {
+      "icon": "\ue798",
+      "extensions": [".dart"]
+    },
+    "elixir": {
+      "icon": "\ue62d",
+      "extensions": [".ex", ".exs"]
+    },
+    "haskell": {
+      "icon": "\ue777",
+      "extensions": [".hs", ".lhs"]
+    },
+    "julia": {
+      "icon": "\ue624",
+      "extensions": [".jl"]
+    },
+    "clojure": {
+      "icon": "\ue76a",
+      "extensions": [".clj", ".cljs", ".cljc", ".edn"]
+    },
+    "elm": {
+      "icon": "\ue62c",
+      "extensions": [".elm"]
+    },
+    "erlang": {
+      "icon": "\ue7b1",
+      "extensions": [".erl", ".hrl"]
+    },
+    "latex": {
+      "icon": "\ue600",
+      "extensions": [".tex", ".sty", ".dtx", ".ltx", ".bib"]
+    },
+    "json": {
+      "icon": "\ue60b",
+      "extensions": [".json", ".jsonc", ".jsonnet", ".ndjson"]
+    },
+    "yaml": {
+      "icon": "\uf481",
+      "extensions": [".yml", ".yaml"]
+    },
+    "toml": {
+      "icon": "\ue6b2",
+      "extensions": [".toml"]
+    },
+    "xml": {
+      "icon": "\uf121",
+      "extensions": [".xml", ".xsd", ".xsl", ".xslt", ".wsdl", ".svg"]
+    },
+    "csv": {
+      "icon": "\uf1c0",
+      "extensions": [".csv", ".tsv", ".tab", ".dat"]
+    },
+    "sql": {
+      "icon": "\ue706",
+      "extensions": [".sql", ".sqlite", ".db"]
+    },
+    "pdf": {
+      "icon": "\uf1c1",
+      "extensions": [".pdf"]
+    },
+    "image": {
+      "icon": "\uf1c5",
+      "extensions": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".svg", ".webp", ".ico"]
+    },
+    "video": {
+      "icon": "\uf03d",
+      "extensions": [".mp4", ".webm", ".mkv", ".mov", ".wmv", ".avi", ".flv", ".m4v"]
+    },
+    "audio": {
+      "icon": "\uf001",
+      "extensions": [".mp3", ".wav", ".ogg", ".flac", ".aac", ".m4a", ".wma"]
+    },
+    "font": {
+      "icon": "\uf031",
+      "extensions": [".ttf", ".otf", ".woff", ".woff2", ".eot"]
+    },
+    "archive": {
+      "icon": "\uf1c6",
+      "extensions": [".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz", ".tgz"]
+    },
+    "binary": {
+      "icon": "\uf471",
+      "extensions": [".bin", ".exe", ".dll", ".so", ".o", ".obj"]
+    },
+    "config": {
+      "icon": "\ue615",
+      "extensions": [".ini", ".conf", ".config", ".cfg", ".properties"]
+    },
+    "docker": {
+      "icon": "\ue7b0",
+      "extensions": [".dockerfile", ".dockerignore"]
+    },
+    "git": {
+      "icon": "\ue702",
+      "extensions": [".gitignore", ".gitattributes", ".gitmodules"]
+    },
+    "license": {
+      "icon": "\uf2c2",
+      "extensions": [".license", ".licence", "LICENSE", "LICENCE"]
+    },
+    "lisp": {
+      "icon": "\ue60c",
+      "extensions": [".lisp", ".cl", ".el", ".scm", ".rkt"]
+    },
+    "prolog": {
+      "icon": "\ue7a1",
+      "extensions": [".pl", ".pro", ".prolog"]
+    },
+    "fortran": {
+      "icon": "\ue7b1",
+      "extensions": [".f", ".f77", ".f90", ".f95", ".f03", ".for"]
+    },
+    "word": {
+      "icon": "\uf1c2",
+      "extensions": [".doc", ".docx", ".docm", ".dot", ".dotx"]
+    },
+    "excel": {
+      "icon": "\uf1c3",
+      "extensions": [".xls", ".xlsx", ".xlsm", ".xlsb", ".csv"]
+    },
+    "powerpoint": {
+      "icon": "\uf1c4",
+      "extensions": [".ppt", ".pptx", ".pptm", ".pps", ".ppsx"]
+    },
+    "gradle": {
+      "icon": "\ue70e",
+      "extensions": [".gradle", ".groovy"]
+    },
+    "cmake": {
+      "icon": "\ue61e",
+      "extensions": ["CMakeLists.txt", ".cmake"]
+    },
+    "terraform": {
+      "icon": "\ue7b7",
+      "extensions": [".tf", ".tfvars", ".tfstate"]
+    },
+    "svelte": {
+      "icon": "\ue75e",
+      "extensions": [".svelte"]
+    },
+    "vue": {
+      "icon": "\ue6a0",
+      "extensions": [".vue"]
+    },
+    "graphql": {
+      "icon": "\ue7b3",
+      "extensions": [".graphql", ".gql"]
+    },
+    "web-config": {
+      "icon": "\uf121",
+      "extensions": [".htaccess", ".htpasswd", ".conf"]
+    },
+    "tsx": {
+      "icon": "\ue77a",
+      "extensions": [".tsx"]
+    },
+    "react": {
+      "icon": "\ue7ba",
+      "extensions": [".jsx", ".tsx"]
+    },
+    "angular": {
+      "icon": "\ue753",
+      "extensions": [".component.ts", ".service.ts", ".directive.ts", ".pipe.ts", ".module.ts"]
+    }
+  },
+  "specificFiles": {
+    "package.json": "\ue718",
+    "package-lock.json": "\ue718",
+    "yarn.lock": "\ue718",
+    "pnpm-lock.yaml": "\ue718",
+    "composer.json": "\ue608",
+    "composer.lock": "\ue608",
+    "README.md": "\uf48a",
+    "README": "\uf48a",
+    "README.txt": "\uf48a",
+    ".env": "\uf023",
+    ".env.local": "\uf023",
+    ".env.development": "\uf023",
+    ".env.production": "\uf023",
+    "Dockerfile": "\ue7b0",
+    "docker-compose.yml": "\ue7b0",
+    "docker-compose.yaml": "\ue7b0",
+    ".dockerignore": "\ue7b0",
+    "Makefile": "\ue779",
+    "makefile": "\ue779",
+    "tsconfig.json": "\ue628",
+    "tslint.json": "\ue628",
+    "eslintrc.js": "\ue713",
+    ".eslintrc": "\ue713",
+    ".eslintrc.js": "\ue713",
+    ".eslintrc.json": "\ue713",
+    ".prettierrc": "\ue713",
+    ".prettierrc.js": "\ue713",
+    ".gitignore": "\ue702",
+    ".gitattributes": "\ue702",
+    ".gitmodules": "\ue702",
+    ".babelrc": "\ue74e",
+    "babel.config.js": "\ue74e",
+    "webpack.config.js": "\uf81a",
+    "rollup.config.js": "\ue788",
+    "vite.config.js": "\ue614",
+    "vite.config.ts": "\ue614",
+    "jest.config.js": "\ue683",
+    "jest.config.ts": "\ue683",
+    "karma.conf.js": "\ue683",
+    "angular.json": "\ue753",
+    "next.config.js": "\ue758",
+    "nuxt.config.js": "\ue77d",
+    "svelte.config.js": "\ue75e",
+    "index.js": "\ue718",
+    "index.ts": "\ue628",
+    "index.html": "\uf13b",
+    "index.php": "\ue73d",
+    "app.js": "\ue718",
+    "server.js": "\ue718",
+    "main.js": "\ue718",
+    "main.ts": "\ue628",
+    "styles.css": "\ue749",
+    "styles.scss": "\ue603",
+    "poetry.lock": "\ue7c4",
+    "Pipfile": "\ue73c",
+    "Pipfile.lock": "\ue73c",
+    "requirements.txt": "\uf81f",
+    "Cargo.toml": "\ue7a8",
+    "Cargo.lock": "\ue7a8",
+    "Gemfile": "\ue739",
+    "Gemfile.lock": "\ue739",
+    ".travis.yml": "\ue77f",
+    ".gitlab-ci.yml": "\uf296",
+    "Jenkinsfile": "\ue767",
+    ".circleci/config.yml": "\uf111",
+    ".editorconfig": "\ue615",
+    ".vscode/settings.json": "\ue70c",
+    ".idea/workspace.xml": "\ue7b5",
+    "pom.xml": "\ue738",
+    "build.gradle": "\ue70e",
+    "build.xml": "\ue737",
+    "gulpfile.js": "\ue763",
+    "gruntfile.js": "\ue74c",
+    "webpack.common.js": "\uf81a",
+    "webpack.dev.js": "\uf81a",
+    "webpack.prod.js": "\uf81a",
+    "tailwind.config.js": "\ue756",
+    "postcss.config.js": "\ue71a",
+    "index.jsx": "\ue7ba",
+    "index.tsx": "\ue77a",
+    "App.js": "\ue7ba",
+    "App.jsx": "\ue7ba",
+    "App.tsx": "\ue77a",
+    "app.vue": "\ue6a0"
+  },
+  "fallbackIcon": "\uf15b"
+}

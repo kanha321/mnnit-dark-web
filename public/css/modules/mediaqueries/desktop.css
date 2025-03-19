@@ -1,0 +1,23 @@
+/* Desktop styles - 769px to 1024px */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Global layout adjustments */
+    main {
+        max-width: 900px;
+    }
+    
+    /* File items */
+    .file-item:hover {
+        transform: scale(1.01);
+    }
+    
+    /* Button animations */
+    .file-item:hover .file-actions .file-action {
+        transform: translateX(0) scale(1);
+    }
+    
+    /* Preview content */
+    .file-item:hover .file-preview-content {
+        max-height: 300px;
+    }
+}

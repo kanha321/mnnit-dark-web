@@ -1,0 +1,59 @@
+/* Preview area styling for file items */
+
+/* Add more clearance for preview content to avoid button shadow overlap */
+.file-preview-content {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(0);
+    overflow: hidden;
+    overflow-y: auto;
+    margin-top: 0;
+    visibility: hidden; /* Hide but keep layout for animation */
+    border-top: 1px solid transparent; /* Transparent border that will show on hover */
+    position: relative;
+    z-index: 1; /* Lower z-index than buttons */
+    padding-top: 10px; /* Add padding at top to create more space */
+}
+
+.file-item:hover .file-preview-content {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 250px;
+    margin-top: 2em; /* Increase top margin for more spacing */
+    padding-top: 1em; /* Add padding at top of preview content */
+    visibility: visible;
+    border-top: 1px solid var(--md-sys-color-outline-variant); /* Add subtle separator line */
+}
+
+/* Remove the margin from file-item-header since we're handling spacing here */
+.file-item-header {
+    margin-bottom: 0; /* Reset margin and handle spacing in preview content */
+}
+
+.file-preview-content pre {
+    margin: 0;
+    padding: 1em;
+    background: var(--md-sys-color-surface-container);
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9em;
+    line-height: 1.4;
+    overflow-x: auto;
+    white-space: pre;
+}
+
+/* Scrollbar styling */
+.file-preview-content::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.file-preview-content::-webkit-scrollbar-track {
+    background: var(--md-sys-color-surface-container);
+    border-radius: 4px;
+}
+
+.file-preview-content::-webkit-scrollbar-thumb {
+    background: var(--md-sys-color-outline);
+    border-radius: 4px;
+}

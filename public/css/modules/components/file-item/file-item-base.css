@@ -1,0 +1,96 @@
+/* Base styling for file items */
+
+.file-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: var(--elevation-1);
+    background-color: var(--md-sys-color-surface-container-low);
+    color: var(--md-sys-color-on-surface);
+    position: relative;
+    overflow: hidden;
+    height: fit-content;
+}
+
+/* File icon with color support */
+.file-icon {
+    font-family: var(--font-family-icons);
+    font-size: 1.8em;
+    margin-right: 0.8em;
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    justify-content: center;
+    width: 32px;
+    font-weight: normal;
+    /* Default colors */
+    color: var(--md-sys-color-on-surface);
+}
+
+/* Colorful file type icons - Treesitter-like colors */
+.file-icon.icon-js, .file-icon.icon-javascript { color: #f7df1e; }
+.file-icon.icon-ts, .file-icon.icon-typescript { color: #3178c6; }
+.file-icon.icon-jsx, .file-icon.icon-react { color: #61dafb; }
+.file-icon.icon-tsx { color: #61dafb; }
+.file-icon.icon-vue { color: #41b883; }
+.file-icon.icon-angular { color: #dd0031; }
+.file-icon.icon-html { color: #e34c26; }
+.file-icon.icon-css { color: #264de4; }
+.file-icon.icon-scss { color: #c69; }
+.file-icon.icon-less { color: #1d365d; }
+.file-icon.icon-python { color: #3776ab; }
+.file-icon.icon-java { color: #ea2d2e; }
+.file-icon.icon-ruby { color: #cc342d; }
+.file-icon.icon-php { color: #777bb3; }
+.file-icon.icon-go { color: #00add8; }
+.file-icon.icon-rust { color: #dea584; }
+.file-icon.icon-cpp { color: #659bd3; }
+.file-icon.icon-csharp { color: #68217a; }
+.file-icon.icon-swift { color: #f05138; }
+.file-icon.icon-kotlin { color: #7f52ff; }
+.file-icon.icon-scala { color: #dc322f; }
+.file-icon.icon-markdown { color: #83b9ff; }
+.file-icon.icon-json { color: #fbc02d; }
+.file-icon.icon-yaml { color: #cb171e; }
+.file-icon.icon-toml { color: #9c4221; }
+.file-icon.icon-xml { color: #f16529; }
+.file-icon.icon-docker { color: #2496ed; }
+.file-icon.icon-git { color: #f14e32; }
+.file-icon.icon-config { color: #a9b7c6; }
+.file-icon.icon-shell, .file-icon.icon-powershell { color: #89e051; }
+.file-icon.icon-license { color: #ff9e0f; }
+.file-icon.icon-pdf { color: #ff0000; }
+.file-icon.icon-image { color: #4caf50; }
+.file-icon.icon-audio { color: #a020f0; }
+.file-icon.icon-video { color: #ff4081; }
+.file-icon.icon-archive { color: #ffa000; }
+.file-icon.icon-text { color: #aaaaaa; }
+.file-icon.icon-word { color: #2b579a; }
+.file-icon.icon-excel { color: #217346; }
+.file-icon.icon-powerpoint { color: #d24726; }
+
+/* Dark mode adjustments - make icons brighter */
+.dark .file-icon.icon-text { color: #dddddd; }
+
+/* File details text */
+.file-details h3 {
+    margin: 0;
+    margin-bottom: 0.25em;
+    color: inherit;
+    font-size: 1.1em;
+    line-height: 1.2;
+}
+
+.file-details p {
+    margin: 0;
+    color: inherit;
+    font-size: 0.9em;
+    height: auto;
+    max-height: 50px;
+}
+
+/* File type highlighting */
+.text-file {
+    border-left: 4px solid var(--md-sys-color-primary);
+}

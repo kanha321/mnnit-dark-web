@@ -1,0 +1,48 @@
+/* Tablet styles - 481px to 768px */
+
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Global layout adjustments */
+    header {
+        padding: 1em 1.5em;
+    }
+    
+    main {
+        padding: 1.5em;
+        margin: 1em;
+    }
+    
+    /* File list and items */
+    #file-list {
+        gap: 0.8em;
+    }
+    
+    .file-item {
+        padding: 1em;
+    }
+    
+    .file-item:hover {
+        transform: scale(1.01);
+    }
+    
+    /* Buttons and actions */
+    .file-actions {
+        flex-wrap: wrap;
+    }
+    
+    /* Stack buttons side by side but make them wider */
+    .file-actions .file-action {
+        min-width: 100px;
+    }
+    
+    /* Preview content */
+    .file-item:hover .file-preview-content {
+        max-height: 200px;
+    }
+    
+    /* Dialogs */
+    .preview-dialog,
+    .manual-copy-dialog {
+        width: 85vw;
+        max-width: 600px;
+    }
+}

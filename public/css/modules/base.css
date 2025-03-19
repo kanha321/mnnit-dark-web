@@ -1,12 +1,16 @@
 :root {
     --text-transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --text-color-transition: color 0.3s var(--animation-easing);
+    /* Remove the FiraCode reference and keep only the system fonts and Symbols Nerd Font */
+    --font-family-base: Arial, sans-serif;
+    --font-family-icons: 'Symbols Nerd Font'; /* Specific font for icons only */
+    --font-family-code: monospace; /* System monospace font for code */
 }
 
 /* Base styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family-base);
     background-color: var(--md-sys-color-surface);
     color: var(--md-sys-color-on-surface);
     transition: background-color 0.3s ease, color 0.3s ease;

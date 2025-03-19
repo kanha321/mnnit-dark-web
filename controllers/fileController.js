@@ -5,7 +5,7 @@
 
 const File = require('../models/file');
 const fs = require('fs').promises;
-const { getMimeType, isPreviewable } = require('../utils/fileUtils');
+const { getMimeType, isPreviewable } = require('../utils/file'); // Updated import
 
 /**
  * Get all files

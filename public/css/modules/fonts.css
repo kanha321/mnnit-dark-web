@@ -1,0 +1,10 @@
+/* Font definitions */
+
+/* Symbols Nerd Font for icons */
+@font-face {
+    font-family: 'Symbols Nerd Font';
+    src: url('/public/font/SymbolsNerdFont-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block; /* Ensures symbols appear as soon as font is loaded */
+}

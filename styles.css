@@ -1,5 +1,12 @@
 /* Main stylesheet that imports modular components */
 
+/* Import fonts first */
+@import url('./public/css/modules/fonts.css');
+
+/* Material theme variables before base styles */
+@import url('./public/css/material-theme/light.css');
+@import url('./public/css/material-theme/dark.css');
+
 /* Base styles and resets */
 @import url('./public/css/modules/base.css');
 
@@ -15,104 +22,5 @@
 /* Utilities */
 @import url('./public/css/modules/utilities.css');
 
-/* Media queries for responsiveness */
-@import url('./public/css/modules/responsive.css');
-
-/* Preview dialog styles */
-.preview-dialog {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    background: var(--md-sys-color-surface);
-    min-width: 60vw;
-    max-width: 90vw;
-    max-height: 80vh;
-}
-
-.preview-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.preview-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-    background: var(--md-sys-color-surface-container);
-    border-bottom: 1px solid var(--md-sys-color-outline);
-}
-
-.preview-header h3 {
-    margin: 0;
-    color: var(--md-sys-color-on-surface);
-}
-
-.close-preview {
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: var(--md-sys-color-on-surface);
-}
-
-.preview-content {
-    padding: 1em;
-    max-height: 60vh;
-    overflow: auto;
-    background: var(--md-sys-color-surface-container);
-}
-
-.preview-content pre {
-    margin: 0;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    color: var(--md-sys-color-on-surface);
-}
-
-/* Code preview styles */
-.preview-content pre.code {
-    margin: 0;
-    padding: 1em;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    font-family: 'Consolas', 'Monaco', monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    tab-size: 4;
-    background: var(--md-sys-color-surface-container);
-    color: var(--md-sys-color-on-surface);
-    border-radius: 4px;
-}
-
-/* Ensure proper scrolling for long files */
-.preview-content pre.code {
-    max-height: calc(80vh - 100px);
-    overflow: auto;
-}
-
-/* Dark theme adjustments */
-.dark-theme .preview-content pre.code {
-    background: var(--md-sys-color-surface-container-highest);
-}
-
-/* Button styles */
-.file-preview {
-    background: var(--md-sys-color-secondary);
-    color: var(--md-sys-color-on-secondary);
-    border: none;
-    padding: 0.5em 1em;
-    cursor: pointer;
-    border-radius: 20px;
-    margin-right: 0.5em;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.file-preview:hover {
-    background: var(--md-sys-color-secondary-container);
-    transform: scale(1.05);
-}
+/* Media queries for responsiveness - now using modular approach */
+@import url('./public/css/modules/mediaqueries/index.css');

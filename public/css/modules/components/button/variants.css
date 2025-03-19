@@ -1,0 +1,49 @@
+/* Button variants */
+
+/* Primary action button (download) */
+.primary-action {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+}
+
+.primary-action:hover {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    box-shadow: var(--md-sys-elevation-level2);
+}
+
+/* Copy button - secondary style */
+.copy-preview {
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+}
+
+.copy-preview:hover {
+    background-color: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
+    box-shadow: var(--md-sys-elevation-level2);
+}
+
+/* File preview button */
+.file-preview {
+    background: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+}
+
+.file-preview:hover {
+    background: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
+}
+
+/* Primary action (download) button positioning */
+.file-actions .primary-action {
+    top: 0;
+    z-index: 1;
+}
+
+/* Copy button positioning */
+.file-actions .copy-preview {
+    top: 0;
+    z-index: 2;
+    margin-right: 0.8em; /* Space between buttons */
+}

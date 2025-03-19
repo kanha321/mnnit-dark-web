@@ -1,0 +1,16 @@
+/* Base responsive settings and variables */
+
+:root {
+    /* Breakpoints */
+    --breakpoint-mobile: 480px;
+    --breakpoint-tablet: 768px;
+    --breakpoint-desktop: 1024px;
+    --breakpoint-large: 1440px;
+}
+
+/* Enable smooth scrolling on all devices that support it */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}

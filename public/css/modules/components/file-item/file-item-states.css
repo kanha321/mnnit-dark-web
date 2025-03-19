@@ -1,0 +1,51 @@
+/* Different states for file items */
+
+/* Hover state - common for all items */
+.file-item:hover {
+    transform: scale(1.01);
+    box-shadow: var(--elevation-2);
+    background-color: var(--md-sys-color-surface-container);
+}
+
+/* Previewable items - text animations with staggered timing */
+.file-item.previewable:hover .file-details h3 {
+    font-size: 1.3em;
+    transform: translateY(0.15em);
+    transition-delay: 0.05s; /* Slight delay for coordinated motion */
+}
+
+.file-item.previewable:hover .file-details p {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+    max-height: 0;
+    margin: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition-delay: 0s; /* Start fading out immediately */
+}
+
+/* Icon animation with slight rotation for more visual interest */
+.file-item:hover .file-icon {
+    transform: scale(1.15) rotate(2deg);
+    transition-delay: 0.05s; /* Slight delay to coordinate with other animations */
+}
+
+/* Non-previewable items - keep text stable */
+.file-item:not(.previewable) .file-details h3,
+.file-item:not(.previewable) .file-details p {
+    transform: none !important;
+    font-size: inherit !important;
+    transition: color 0.2s ease; /* Only animate color change */
+}
+
+.file-item:not(.previewable):hover .file-details p {
+    opacity: 1;
+    max-height: initial;
+    margin: initial;
+}
+
+/* Remove icon animation for non-previewable items */
+.file-item:not(.previewable):hover .file-icon {
+    transform: none;
+    transition-delay: 0s;
+}

@@ -1,0 +1,215 @@
+/* Mobile styles - up to 480px */
+
+@media (max-width: 480px) {
+    /* Global layout adjustments */
+    body {
+        padding: 0;
+    }
+    
+    header {
+        flex-direction: column;
+        padding: 1em;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5em;
+    }
+    
+    main {
+        padding: 0.8em;
+        margin: 0.5em;
+    }
+    
+    /* File list and items */
+    #file-list {
+        gap: 0.7em;
+        padding: 0.5em;
+    }
+    
+    .file-item {
+        padding: 0.8em;
+        margin: 0 0 0.5em 0;
+        border-radius: 8px;
+    }
+    
+    /* Keep consistent hover behavior across all devices */
+    .file-item:hover {
+        transform: scale(1.01);
+    }
+    
+    /* Keep the horizontal layout for all screen sizes */
+    .file-item-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 0.5em;
+    }
+    
+    .file-details-group {
+        flex: 1;
+        min-width: 0; /* Allow content to shrink */
+    }
+    
+    .file-details {
+        min-width: 0; /* Allow content to shrink */
+    }
+    
+    /* Ensure text truncates properly */
+    .file-details h3, 
+    .file-details p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Keep buttons side-by-side, but show only icons */
+    .file-actions {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        margin-left: 0.5em;
+        padding-left: 0;
+        gap: 0.3em; /* Smaller gap between buttons */
+        min-width: auto; /* Let container shrink */
+    }
+    
+    /* Icon-only mode for vertical layout buttons */
+    .file-actions .file-action span {
+        display: none; /* Hide text content */
+    }
+    
+    /* Button sizing for small screens */
+    .file-actions .file-action {
+        width: 32px;
+        height: 32px;
+        padding: 0.4em;
+    }
+    
+    .file-actions .file-action i {
+        font-size: 1.3em; /* Make icon slightly larger */
+        margin: 0; /* Remove any margins */
+    }
+    
+    .file-actions .file-action {
+        position: absolute;
+        right: -100%;
+        opacity: 0;
+        pointer-events: none;
+        transition: 
+            right 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.1), 
+            opacity 0.3s ease, 
+            transform 0.3s ease;
+    }
+    
+    /* Same button animation as desktop */
+    .file-item:hover .file-actions .file-action {
+        position: relative;
+        right: 0;
+        opacity: 1;
+        pointer-events: auto;
+    }
+    
+    /* Apply the same staggered delay */
+    .file-item:hover .file-actions .primary-action {
+        transition-delay: 0.05s;
+        margin-top: 0.3em; /* Reduced space between stacked buttons */
+    }
+    
+    .file-item:hover .file-actions .copy-preview {
+        transition-delay: 0.15s;
+    }
+    
+    /* Preview content */
+    .file-item:hover .file-preview-content {
+        max-height: 150px; /* Smaller preview on mobile */
+    }
+    
+    /* Dialogs */
+    .preview-dialog {
+        width: 95vw;
+        max-width: none;
+        max-height: 90vh;
+    }
+
+    /* Compact layout specific adjustments */
+    @media (max-width: 359px) {
+        /* Force vertical layout for compact screens */
+        .file-item-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .file-details-group {
+            max-width: 65%; /* Limit width to make room for buttons */
+            width: 100%;
+            margin-bottom: 0.6em;
+        }
+        
+        /* Make actions container take full width */
+        .file-actions {
+            width: 100%;
+            margin-left: 0;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+        
+        /* Stack buttons vertically */
+        .file-item:hover .action-stack {
+            flex-direction: column;
+            gap: 0.3em;
+        }
+        
+        /* Add more space between title and buttons */
+        .file-details {
+            margin-bottom: 0.5em;
+        }
+        
+        /* Make buttons take full width */
+        .file-actions .file-action {
+            width: 28px; /* Even smaller buttons */
+            height: 28px;
+            padding: 0.3em;
+            justify-content: center;
+            margin-bottom: 0.3em; /* Reduced space between buttons */
+        }
+        
+        .file-actions .file-action i {
+            font-size: 1.1em; /* Slightly smaller icons */
+        }
+        
+        /* Different animation - slide from top */
+        .file-actions .file-action {
+            position: relative;
+            right: 0;
+            top: -20px;
+            opacity: 0;
+            transform: translateY(0);
+        }
+        
+        .file-item:hover .file-actions .file-action {
+            top: 0;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Staggered animation for vertically stacked buttons */
+        .file-item:hover .file-actions .copy-preview {
+            transition-delay: 0.05s;
+        }
+        
+        .file-item:hover .file-actions .primary-action {
+            transition-delay: 0.15s;
+        }
+        
+        /* Reset animation on mouseout */
+        .file-item:not(:hover) .file-actions .file-action {
+            transition-duration: 0.2s;
+            top: -20px;
+            opacity: 0;
+        }
+    }
+}

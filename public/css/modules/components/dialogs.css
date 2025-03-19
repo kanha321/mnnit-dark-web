@@ -1,0 +1,180 @@
+/* Dialog component styles */
+
+/* Preview dialog styles */
+.preview-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    box-shadow: var(--md-sys-elevation-level3);
+    background: var(--md-sys-color-surface);
+    min-width: 60vw;
+    max-width: 90vw;
+    max-height: 80vh;
+}
+
+.preview-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background: var(--md-sys-color-surface-container);
+    border-bottom: 1px solid var(--md-sys-color-outline);
+}
+
+.preview-header h3 {
+    margin: 0;
+    color: var(--md-sys-color-on-surface);
+}
+
+.close-preview {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--md-sys-color-on-surface);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.close-preview:hover {
+    background-color: var(--md-sys-color-surface-container-highest);
+}
+
+.close-preview i {
+    font-family: var(--font-family-icons);
+    font-style: normal;
+    font-size: 0.8em;
+    line-height: 1;
+}
+
+.preview-content {
+    padding: 1em;
+    max-height: 60vh;
+    overflow: auto;
+    background: var(--md-sys-color-surface-container);
+}
+
+.preview-content pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--md-sys-color-on-surface);
+}
+
+/* Code preview styles */
+.preview-content pre.code {
+    margin: 0;
+    padding: 1em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: var(--font-family-code);
+    font-size: 14px;
+    line-height: 1.5;
+    tab-size: 4;
+    background: var(--md-sys-color-surface-container);
+    color: var(--md-sys-color-on-surface);
+    border-radius: 4px;
+}
+
+/* Ensure proper scrolling for long files */
+.preview-content pre.code {
+    max-height: calc(80vh - 100px);
+    overflow: auto;
+}
+
+/* Dark theme adjustments */
+.dark .preview-content pre.code {
+    background: var(--md-sys-color-surface-container-highest);
+}
+
+/* Manual copy dialog */
+.manual-copy-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    box-shadow: var(--md-sys-elevation-level3);
+    background: var(--md-sys-color-surface);
+    min-width: 80vw;
+    max-width: min(90vw, 600px); /* Responsive width */
+    max-height: 80vh;
+    z-index: 1000;
+}
+
+.manual-copy-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.manual-copy {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    margin: 10px 0;
+    background: var(--md-sys-color-surface-container-lowest);
+    color: var(--md-sys-color-on-surface);
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 4px;
+    font-family: var(--font-family-code);
+    resize: none;
+}
+
+.copy-instructions {
+    margin: 0.5em 0;
+    font-weight: bold;
+}
+
+.copy-controls {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+    flex-wrap: wrap;
+}
+
+.copy-controls button i {
+    font-family: var(--font-family-icons);
+    font-style: normal;
+}
+
+.select-all-btn {
+    background: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-on-surface);
+    border: 1px solid var(--md-sys-color-outline);
+    padding: 0.7em 1.5em;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Platform-specific enhancements */
+@supports (-webkit-touch-callout: none) {
+    /* iOS-specific styles */
+    .manual-copy {
+        -webkit-user-select: text;
+        user-select: text;
+    }
+}
+
+.try-copy-again {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border: none;
+    padding: 0.7em 1.5em;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+}

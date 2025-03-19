@@ -1,0 +1,37 @@
+/* Large desktop styles - 1025px and above */
+
+@media (min-width: 1025px) {
+    /* Global layout adjustments */
+    main {
+        max-width: 1200px;
+        padding: 2em;
+    }
+    
+    /* File list */
+    #file-list {
+        gap: 1.2em;
+    }
+    
+    /* File items */
+    .file-item {
+        transition: 
+            transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+            box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+            background-color 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    
+    .file-item:hover {
+        transform: scale(1.02);
+        box-shadow: var(--md-sys-elevation-level3);
+    }
+    
+    /* Enhanced button animations for large screens */
+    .file-item:hover .file-actions .file-action {
+        transform: translateX(0) scale(1);
+    }
+    
+    /* Preview content */
+    .file-item:hover .file-preview-content {
+        max-height: 350px;
+    }
+}

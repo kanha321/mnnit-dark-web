@@ -5,7 +5,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { getFileType, formatFileSize, getMimeType } = require('../utils/fileUtils');
+const fileUtils = require('../utils/file'); // Updated import
 
 // Update FILES_DIR to point to the root files directory
 const FILES_DIR = path.resolve(__dirname, '../files');

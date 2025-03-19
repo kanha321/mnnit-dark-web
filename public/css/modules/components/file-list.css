@@ -5,6 +5,9 @@
     flex-direction: column;
     gap: 1em;
     padding: 1em;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     background-color: var(--md-sys-color-surface);
     color: var(--md-sys-color-on-surface);
     border-radius: 12px;
@@ -12,16 +15,24 @@
     transition: background-color 0.7s ease;
 }
 
+/* Ensure each item takes full width of container */
+#file-list > * {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
 /* Scrollbar styling */
-#product-list::-webkit-scrollbar {
+#file-list::-webkit-scrollbar {
+    width: 8px;
     height: 8px;
 }
 
-#product-list::-webkit-scrollbar-track {
-    background-color: #e0e0e0;
+#file-list::-webkit-scrollbar-track {
+    background-color: var(--md-sys-color-surface-container-low);
 }
 
-#product-list::-webkit-scrollbar-thumb {
+#file-list::-webkit-scrollbar-thumb {
     background-color: var(--md-sys-color-primary);
     border-radius: 8px;
 }

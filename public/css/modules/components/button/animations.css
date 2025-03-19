@@ -1,0 +1,39 @@
+/* Button animations - simplified */
+
+/* Hide buttons initially */
+.file-actions .file-action {
+    transform: translateX(50px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s, opacity 0.3s;
+}
+
+/* Show buttons on hover with elastic overshoot */
+.file-item:hover .file-actions .file-action {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+    transition: 
+        transform 0.5s cubic-bezier(0.05, 0.9, 0.1, 1.5),
+        opacity 0.3s ease-out;
+}
+
+/* Stagger the buttons slightly */
+.file-item:hover .file-actions .primary-action {
+    transition-delay: 0.05s;
+}
+
+.file-item:hover .file-actions .copy-preview {
+    transition-delay: 0.12s;
+}
+
+/* Button hover effect */
+.file-action:hover {
+    transform: scale(1.08);
+    transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1.3);
+}
+
+.file-action:active {
+    transform: scale(0.92);
+    transition: transform 0.15s ease-out;
+}

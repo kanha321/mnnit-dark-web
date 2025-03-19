@@ -28,3 +28,8 @@
  
 [ 1:19:28.97 Wed 03/19/2025] Pushed to branch main 
  
+[23:23:14.62 Wed 03/19/2025] add icons and animations 
+------------------ Committed f6cf771 to branch main ------------------ 
+ 
+[23:23:29.71 Wed 03/19/2025] Pushed to branch main 
+ 

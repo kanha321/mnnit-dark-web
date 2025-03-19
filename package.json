@@ -12,7 +12,8 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "setup-fonts": "mkdir -p public/fonts && cp -r node_modules/nerd-fonts-fira-code/FiraCodeNerdFontMono-* public/fonts/"
   },
   "author": "kanhaji",
   "license": "ISC"

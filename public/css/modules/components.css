@@ -1,7 +1,8 @@
 /* Components main file - imports all component styles */
 
 @import url('./components/file-list.css');
-@import url('./components/file-item.css');
+@import url('./components/file-item/index.css');
 @import url('./components/file-preview.css');
-@import url('./components/buttons.css');
+@import url('./components/dialogs.css');
+@import url('./components/button/index.css'); /* Updated import path */
 @import url('./components/theme-switch.css');

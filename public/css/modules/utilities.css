@@ -22,6 +22,19 @@
 .error-state {
     background-color: var(--md-sys-color-error-container);
     color: var(--md-sys-color-on-error-container);
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-weight: 500;
+    padding: 0.75em 1em;
+    border-radius: 6px;
+    margin-bottom: 1em;
+}
+
+.error-state::before {
+    content: "\uf071"; /* Exclamation triangle icon */
+    font-family: var(--font-family-icons);
+    font-size: 1.2em;
 }
 
 /* Visibility utilities */

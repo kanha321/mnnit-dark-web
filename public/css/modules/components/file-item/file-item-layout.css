@@ -1,0 +1,66 @@
+/* Layout for file items */
+
+.file-item-header {
+    display: flex;
+    align-items: flex-start; /* Change from center to flex-start to better handle vertical button stacking */
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* Prevent wrapping - keep buttons on right */
+    position: relative;
+    z-index: 1;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.file-details-group {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0; /* Allow content to shrink if needed */
+    max-width: calc(100% - 150px); /* Leave room for buttons */
+}
+
+.file-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0.2em 0;
+}
+
+/* Allow text to truncate with ellipsis when space is limited */
+.file-details h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-details p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Adjust file actions container for vertical button layout */
+.file-actions {
+    margin-left: auto;
+    padding-left: 1em;
+    display: flex;
+    min-width: fit-content; /* Ensure buttons don't shrink too much */
+    transition: all 0.3s ease;
+    position: relative;
+    align-self: flex-start; /* Always align to top */
+    top: -2px;
+}
+
+/* Base responsive classes that can be used across the app */
+.hide-on-mobile {
+    display: initial;
+}
+
+.show-on-mobile {
+    display: none;
+}
+
+/* Responsive behavior will be controlled by media queries in mediaqueries/ folder */

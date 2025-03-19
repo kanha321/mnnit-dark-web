@@ -1,0 +1,8 @@
+/* File item component - Main entry point */
+
+/* Import component parts */
+@import url('./file-item-base.css');
+@import url('./file-item-layout.css');
+@import url('./file-item-states.css');
+@import url('./file-item-animations.css');
+@import url('./file-item-preview.css');
