@@ -7,11 +7,11 @@
     background-color: var(--md-sys-color-surface-container);
 }
 
-/* Previewable items - text animations with staggered timing */
+/* Previewable items - text animations with consistent styling */
 .file-item.previewable:hover .file-details h3 {
-    font-size: 1.3em;
     transform: translateY(0.15em);
     transition-delay: 0.05s; /* Slight delay for coordinated motion */
+    /* Remove font-size change to keep consistent text size */
 }
 
 .file-item.previewable:hover .file-details p {
@@ -34,7 +34,9 @@
 .file-item:not(.previewable) .file-details h3,
 .file-item:not(.previewable) .file-details p {
     transform: none !important;
-    font-size: inherit !important;
+    opacity: 1 !important; /* Keep visible */
+    max-height: none !important; /* Keep height */
+    margin: initial !important; /* Keep margins */
     transition: color 0.2s ease; /* Only animate color change */
 }
 

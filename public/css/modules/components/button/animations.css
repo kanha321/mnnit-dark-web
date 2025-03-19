@@ -1,24 +1,44 @@
-/* Button animations - simplified */
+/* Button animations with improved icon rendering */
 
-/* Hide buttons initially */
+/* Common transform and transition properties for better performance */
+.file-actions {
+    /* Create a GPU layer for all animation children */
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Hide buttons initially with GPU-accelerated properties */
 .file-actions .file-action {
     transform: translateX(50px);
     opacity: 0;
     pointer-events: none;
-    transition: transform 0.4s, opacity 0.3s;
+    /* Force hardware acceleration */
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    /* Simplified single transition property for better performance */
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-/* Show buttons on hover with elastic overshoot */
+/* Entry animation with smoother elastic effect */
 .file-item:hover .file-actions .file-action {
     transform: translateX(0);
     opacity: 1;
     pointer-events: auto;
-    transition: 
-        transform 0.5s cubic-bezier(0.05, 0.9, 0.1, 1.5),
-        opacity 0.3s ease-out;
+    /* Enhanced elastic transition with better performance */
+    transition: all 0.45s cubic-bezier(0.05, 0.9, 0.1, 1.5);
 }
 
-/* Stagger the buttons slightly */
+/* Exit animation with simplified properties */
+.file-item:not(:hover) .file-actions .file-action {
+    transform: translateX(50px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Staggered animation timing for buttons */
 .file-item:hover .file-actions .primary-action {
     transition-delay: 0.05s;
 }
@@ -27,13 +47,45 @@
     transition-delay: 0.12s;
 }
 
-/* Button hover effect */
-.file-action:hover {
-    transform: scale(1.08);
-    transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1.3);
+/* Force GPU acceleration for icons specifically */
+.file-action i {
+    display: inline-block;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
+/* Button hover state - use transform for better performance */
+.file-action:hover {
+    transform: scale(1.15) !important;
+    z-index: 10;
+    transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1.3) !important;
+}
+
+/* Smoother pressed state transition */
 .file-action:active {
-    transform: scale(0.92);
-    transition: transform 0.15s ease-out;
+    transform: scale(0.92) !important;
+    transition: transform 0.12s ease-out !important;
+}
+
+/* Fix for position context when combining animations */
+.file-item:hover .file-actions .file-action:hover {
+    transform: scale(1.15) !important;
+}
+
+.file-item:hover .file-actions .file-action:active {
+    transform: scale(0.92) !important;
+}
+
+/* Apply specific fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .file-action {
+        /* Force a new compositing layer */
+        transform: translate3d(0, 0, 0);
+    }
+    
+    .file-action i {
+        /* Ensure icons render correctly on iOS */
+        transform: translate3d(0, 0, 0);
+    }
 }

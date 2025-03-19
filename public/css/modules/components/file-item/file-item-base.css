@@ -73,21 +73,23 @@
 /* Dark mode adjustments - make icons brighter */
 .dark .file-icon.icon-text { color: #dddddd; }
 
-/* File details text */
+/* File details text - ensure consistent sizing across all card types */
 .file-details h3 {
     margin: 0;
     margin-bottom: 0.25em;
     color: inherit;
-    font-size: 1.1em;
+    font-size: 1.1em; /* Consistent size */
     line-height: 1.2;
+    font-weight: 500; /* Consistent weight */
 }
 
 .file-details p {
     margin: 0;
-    color: inherit;
-    font-size: 0.9em;
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 0.9em; /* Consistent size */
+    line-height: 1.4;
     height: auto;
-    max-height: 50px;
+    max-height: unset; /* Remove height restrictions */
 }
 
 /* File type highlighting */

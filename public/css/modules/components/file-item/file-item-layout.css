@@ -2,7 +2,7 @@
 
 .file-item-header {
     display: flex;
-    align-items: flex-start; /* Change from center to flex-start to better handle vertical button stacking */
+    align-items: flex-start; 
     width: 100%;
     justify-content: space-between;
     flex-wrap: nowrap; /* Prevent wrapping - keep buttons on right */
@@ -29,28 +29,36 @@
     padding: 0.2em 0;
 }
 
-/* Allow text to truncate with ellipsis when space is limited */
+/* File name should always truncate with ellipsis when needed */
 .file-details h3 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 1.1em; /* Consistent font size across screen sizes */
+    line-height: 1.2;
+    margin: 0 0 0.25em 0;
 }
 
+/* Allow file details to wrap to multiple lines */
 .file-details p {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal; /* Allow text to wrap naturally */
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.4;
+    margin: 0.2em 0;
+    font-size: 0.9em; /* Consistent font size across screen sizes */
+    color: var(--md-sys-color-on-surface-variant); /* Slightly muted color for metadata */
 }
 
-/* Adjust file actions container for vertical button layout */
+/* File actions container */
 .file-actions {
     margin-left: auto;
     padding-left: 1em;
     display: flex;
-    min-width: fit-content; /* Ensure buttons don't shrink too much */
+    min-width: fit-content;
     transition: all 0.3s ease;
     position: relative;
-    align-self: flex-start; /* Always align to top */
+    align-self: flex-start;
     top: -2px;
 }
 

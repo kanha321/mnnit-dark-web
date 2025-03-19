@@ -66,13 +66,18 @@ function renderFileItem(file, container) {
     else if (fileExt === 'php') iconClass = 'icon-php';
     // ...and so on for other types...
 
+    // Format file details to display on multiple lines for better readability on mobile
+    const fileDetails = `
+        <h3>${file.name}</h3>
+        <p>Size: ${file.size}<br>Modified: ${file.lastModified}</p>
+    `;
+    
     fileItem.innerHTML = `
         <div class="file-item-header">
             <div class="file-details-group">
                 <div class="file-icon ${iconClass}">${fileUtils.getFileIcon(file.type, file.name)}</div>
                 <div class="file-details">
-                    <h3>${file.name}</h3>
-                    <p>Size: ${file.size} | Modified: ${file.lastModified}</p>
+                    ${fileDetails}
                 </div>
             </div>
             <div class="file-actions">

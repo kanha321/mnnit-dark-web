@@ -99,13 +99,13 @@
     background: var(--md-sys-color-surface-container-highest);
 }
 
-/* Manual copy dialog */
+/* Manual copy dialog - enhanced for mobile */
 .manual-copy-dialog {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 0;
+    padding: 1.5em;
     border: none;
     border-radius: 8px;
     box-shadow: var(--md-sys-elevation-level3);
@@ -120,6 +120,12 @@
     background: rgba(0, 0, 0, 0.5);
 }
 
+.dialog-header h3 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: var(--md-sys-color-on-surface);
+}
+
 .manual-copy {
     width: 100%;
     height: 200px;
@@ -131,11 +137,14 @@
     border-radius: 4px;
     font-family: var(--font-family-code);
     resize: none;
+    user-select: text;
+    -webkit-user-select: text; /* iOS Safari */
 }
 
 .copy-instructions {
     margin: 0.5em 0;
     font-weight: bold;
+    color: var(--md-sys-color-on-surface-variant);
 }
 
 .copy-controls {
@@ -145,18 +154,40 @@
     flex-wrap: wrap;
 }
 
+.copy-controls button {
+    padding: 0.7em 1.5em;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
 .copy-controls button i {
     font-family: var(--font-family-icons);
     font-style: normal;
 }
 
 .select-all-btn {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border: none;
+}
+
+.select-all-btn:hover {
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+}
+
+.close-dialog {
+    background: transparent;
+    color: var(--md-sys-color-on-surface-variant);
+    border: 1px solid var(--md-sys-color-outline);
+}
+
+.close-dialog:hover {
     background: var(--md-sys-color-surface-container-high);
     color: var(--md-sys-color-on-surface);
-    border: 1px solid var(--md-sys-color-outline);
-    padding: 0.7em 1.5em;
-    border-radius: 20px;
-    cursor: pointer;
 }
 
 /* Platform-specific enhancements */

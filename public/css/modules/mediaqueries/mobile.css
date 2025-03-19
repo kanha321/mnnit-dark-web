@@ -57,6 +57,29 @@
     }
     
     /* Ensure text truncates properly */
+    .file-details h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 0.25em;
+    }
+    
+    /* File details on multiple lines for smaller screens */
+    .file-details p {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        line-height: 1.4;
+    }
+    
+    /* Adjust icon size for mobile */
+    .file-icon {
+        min-width: 24px;
+        margin-right: 0.5em;
+        font-size: 1.5em;
+    }
+    
+    /* Ensure text truncates properly */
     .file-details h3, 
     .file-details p {
         white-space: nowrap;

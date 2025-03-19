@@ -1,67 +1,45 @@
-/* Button states */
+/* Button states - refactored and simplified */
 
-/* Copied state */
+/* State-specific styles */
 .copy-preview.copied-state {
     background-color: var(--md-sys-color-secondary);
     color: var(--md-sys-color-on-secondary);
     box-shadow: var(--md-sys-elevation-level2);
 }
 
-.copy-preview.copied-state:hover {
-    background-color: var(--md-sys-color-secondary);
-}
-
-/* Error state */
 .copy-preview.error-state {
     background-color: var(--md-sys-color-error);
     color: var(--md-sys-color-on-error);
     box-shadow: var(--md-sys-elevation-level2);
 }
 
-/* Hover state */
-.file-action:hover {
+/* Hover colors */
+.file-action:not(.copy-preview):hover {
     background: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
-    box-shadow: var(--md-sys-elevation-level2);
 }
 
-/* Active state */
-.file-action:active {
-    transform: scale(0.95);
-}
-
-/* Responsive behavior - buttons always side by side */
-@media (max-width: 600px) {
-    /* Keep buttons in a row, but align to right side */
-    .file-actions {
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 0.5em;
+/* Only hide text at smaller screen sizes */
+@media (max-width: 480px) {
+    /* Convert buttons to icon-only */
+    .file-actions .file-action {
+        width: 36px;
+        height: 36px;
+        padding: 0.5em;
+        border-radius: 50%;
+        justify-content: center;
     }
     
-    /* Icon-only mode for small screens */
-    @media (max-width: 480px) {
-        .file-actions .file-action span {
-            display: none; /* Hide text content */
-        }
-        
-        .file-actions .file-action {
-            padding: 0.5em;
-            width: 36px;
-            height: 36px;
-            justify-content: center;
-            border-radius: 50%;
-        }
-        
-        .file-actions .file-action i {
-            font-size: 1.3em;
-            margin: 0;
-        }
-        
-        /* Remove right margin from copy button for compact layout */
-        .file-actions .copy-preview {
-            margin-right: 0;
-        }
+    .file-actions .file-action span {
+        display: none;
+    }
+    
+    .file-actions .file-action i {
+        font-size: 1.3em;
+        margin: 0;
+    }
+    
+    .file-actions .copy-preview {
+        margin-right: 0;
     }
 }

@@ -9,7 +9,7 @@
 .primary-action:hover {
     background-color: var(--md-sys-color-primary-container);
     color: var(--md-sys-color-on-primary-container);
-    box-shadow: var(--md-sys-elevation-level2);
+    /* Removed box-shadow enhancement */
 }
 
 /* Copy button - secondary style */
@@ -18,10 +18,11 @@
     color: var(--md-sys-color-on-secondary-container);
 }
 
+/* Remove color change on hover for copy button */
 .copy-preview:hover {
-    background-color: var(--md-sys-color-secondary);
-    color: var(--md-sys-color-on-secondary);
-    box-shadow: var(--md-sys-elevation-level2);
+    background-color: var(--md-sys-color-secondary-container); /* Keep original color */
+    color: var(--md-sys-color-on-secondary-container); /* Keep original color */
+    /* Removed box-shadow enhancement */
 }
 
 /* File preview button */
