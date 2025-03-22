@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNNIT Dark Web File Upload (DEMO)</title>
+    <!-- Material 3 Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .demo-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #FFF3CD;
+            color: #856404;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .upload-button:after {
+            content: " (Demo)";
+        }
+    </style>
+</head>
+<body class="dark">
+    <div class="container">
+        <header class="app-header">
+            <h1>MNNIT Dark Web <span style="font-size: 14px; vertical-align: super; color: orange; margin-left: 5px;">DEMO</span></h1>
+            <button id="theme-toggle" class="icon-button">
+                <span class="material-symbols-outlined">dark_mode</span>
+            </button>
+        </header>
+
+        <main>
+            <div style="text-align: center; margin-bottom: 20px; background-color: #FFF3CD; color: #856404; padding: 10px; border-radius: 5px;">
+                <strong>⚠️ FRONTEND DEMO ONLY:</strong> Backend upload functionality not implemented yet
+            </div>
+            
+            <div class="upload-card">
+                <div class="demo-badge">DEMO</div>
+                <h2>Upload Files <small style="font-size: 14px; color: orange;">(Frontend Demo)</small></h2>
+                <div class="upload-area" id="drop-area">
+                    <div class="upload-icon">
+                        <span class="material-symbols-outlined">cloud_upload</span>
+                    </div>
+                    <p>Drag and drop files here or click to select files</p>
+                    <input type="file" id="file-input" multiple hidden />
+                    <button class="upload-button" id="select-files">Select Files</button>
+                </div>
+                
+                <div class="file-list" id="file-list">
+                    <!-- Files will be listed here -->
+                </div>
+                
+                <div class="actions">
+                    <button class="secondary-button" id="clear-files">Clear</button>
+                    <button class="primary-button" id="upload-files">Upload Files <small>(Demo)</small></button>
+                </div>
+            </div>
+            
+            <div class="upload-progress" id="upload-progress" hidden>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p class="progress-text" id="progress-text">Uploading... 0%</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 MNNIT's Dark Web - Share Files Securely <span style="color: orange; font-size: 12px; margin-left: 5px;">(FRONTEND DEMO)</span></p>
+        </footer>
+    </div>
+    
+    <!-- Scripts -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

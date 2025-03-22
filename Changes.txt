@@ -39,4 +39,8 @@
 [ 4:00:30.89 Thu 03/20/2025] Pushed to branch main 
  
 [ 15:12:15.01 Sat 03/22/2025] fix unknown file in linux, change fonts 
------------------- Committed 882aec1 to branch main ------------------ 
+------------------ Committed 882aec1 to branch main ------------------ [20:08:32 2025-03-22] add upload ui only
+------------------ Committed 1d3da1c to branch main ------------------
+
+[20:08:47 2025-03-22] Pushed to branch main
+
