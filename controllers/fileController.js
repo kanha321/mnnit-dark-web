@@ -5,7 +5,8 @@
 
 const File = require('../models/file');
 const fs = require('fs').promises;
-const { getMimeType, isPreviewable } = require('../utils/file'); // Updated import
+const path = require('path');
+const { getMimeType, isPreviewable } = require('../utils/file');
 
 /**
  * Get all files
@@ -17,7 +18,6 @@ async function getAllFiles(req, res) {
         const files = await File.getAllFiles();
         res.json(files);
     } catch (error) {
-        console.error('Error in getAllFiles controller:', error);
         res.status(500).json({ error: 'Failed to retrieve files' });
     }
 }
@@ -31,7 +31,6 @@ function downloadFile(req, res) {
     const fileName = req.params.fileName;
     const filePath = File.getFilePath(fileName);
     
-    // Check if file exists
     if (!File.fileExists(fileName)) {
         return res.status(404).send('File not found');
     }
@@ -45,74 +44,31 @@ function downloadFile(req, res) {
  * @param {object} res - Express response object
  */
 async function previewFile(req, res) {
-    console.log('\n=== Preview Request ===');
     const fileName = req.params.fileName;
-    console.log('File requested:', fileName);
-    console.log('Request URL:', req.originalUrl);
-    console.log('Request path:', req.path);
-
-    const filePath = File.getFilePath(fileName);
-    console.log('Resolved file path:', filePath);
+    const filePath = path.resolve(File.FILES_DIR, fileName);
 
     try {
-        // Check file existence
         const exists = await fs.access(filePath).then(() => true).catch(() => false);
-        console.log('File exists:', exists);
         
         if (!exists) {
-            console.log('Error: File not found');
-            return res.status(404).json({ 
-                error: 'File not found',
-                details: {
-                    fileName,
-                    filePath,
-                    exists
-                }
-            });
+            return res.status(404).json({ error: 'File not found' });
         }
 
-        // Check if file is previewable
         const mimeType = getMimeType(fileName);
         const canPreview = isPreviewable(fileName);
-        console.log('MIME type:', mimeType);
-        console.log('Can preview:', canPreview);
 
         if (!canPreview) {
-            console.log('Error: Unsupported file type');
-            return res.status(400).json({ 
-                error: 'File type not supported for preview',
-                details: {
-                    fileName,
-                    mimeType,
-                    supported: false
-                }
-            });
+            return res.status(400).json({ error: 'File type not supported for preview' });
         }
 
-        // Read file content
-        console.log('Reading file...');
         const content = await fs.readFile(filePath, 'utf8');
-        console.log('File size:', content.length, 'bytes');
-
-        // Send response
-        console.log('Sending response...');
-        res.removeHeader('Content-Type');
-        res.set('Content-Type', 'text/plain');
+        
+        res.setHeader('Content-Type', 'text/plain; charset=utf-8');
         res.send(content);
-        console.log('Response sent successfully');
-        console.log('===================\n');
 
     } catch (error) {
-        console.error('Error in preview:', error);
-        console.log('Stack trace:', error.stack);
         res.status(500).json({
-            error: 'Error reading file',
-            details: {
-                message: error.message,
-                code: error.code,
-                fileName,
-                filePath
-            }
+            error: 'Error reading file'
         });
     }
 }

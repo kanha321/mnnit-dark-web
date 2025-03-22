@@ -13,6 +13,11 @@
     position: relative;
     z-index: 1; /* Lower z-index than buttons */
     padding-top: 10px; /* Add padding at top to create more space */
+    transition: 
+        opacity 0.25s ease, 
+        max-height 0.35s ease,
+        margin-top 0.25s ease,
+        visibility 0s linear 0.25s; /* Delay hiding until after fade out */
 }
 
 .file-item:hover .file-preview-content {
@@ -23,6 +28,11 @@
     padding-top: 1em; /* Add padding at top of preview content */
     visibility: visible;
     border-top: 1px solid var(--md-sys-color-outline-variant); /* Add subtle separator line */
+    transition: 
+        opacity 0.25s ease, 
+        max-height 0.35s ease,
+        margin-top 0.25s ease,
+        visibility 0s linear; /* No delay when showing */
 }
 
 /* Remove the margin from file-item-header since we're handling spacing here */
@@ -35,9 +45,9 @@
     padding: 1em;
     background: var(--md-sys-color-surface-container);
     border-radius: 4px;
-    font-family: 'Consolas', 'Monaco', monospace;
+    font-family: var(--font-family-code); /* JetBrains Mono for code */
     font-size: 0.9em;
-    line-height: 1.4;
+    line-height: 1.5;
     overflow-x: auto;
     white-space: pre;
 }

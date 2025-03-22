@@ -80,7 +80,8 @@
     color: inherit;
     font-size: 1.1em; /* Consistent size */
     line-height: 1.2;
-    font-weight: 500; /* Consistent weight */
+    font-weight: normal; /* Use normal weight for filenames */
+    letter-spacing: 0.02em; /* Improve readability for Cookie Run */
 }
 
 .file-details p {
@@ -90,9 +91,16 @@
     line-height: 1.4;
     height: auto;
     max-height: unset; /* Remove height restrictions */
+    letter-spacing: 0.01em; /* Improve readability for Cookie Run */
 }
 
 /* File type highlighting */
 .text-file {
     border-left: 4px solid var(--md-sys-color-primary);
+}
+
+/* Empty file styling */
+.empty-file .file-description {
+    font-style: italic;
+    opacity: 0.75;
 }

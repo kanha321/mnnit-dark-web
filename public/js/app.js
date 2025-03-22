@@ -1,17 +1,17 @@
 /**
  * Main application entry point
- * Initializes modules and bootstraps the application
  */
 
 import FileSystem from './fileSystem/index.js';
 import UI from './ui/index.js';
 import iconManager from './ui/iconManager.js';
+import fontLoader from './ui/fontLoader.js';
 
-/**
- * Initialize the application when DOM is loaded
- */
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize the icon manager first to ensure icons load properly
+    // Preload fonts first
+    fontLoader.preloadFonts();
+    
+    // Initialize the icon manager
     iconManager.initialize();
     
     // Initialize file system and UI components

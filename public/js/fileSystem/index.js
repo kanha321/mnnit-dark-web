@@ -4,8 +4,8 @@
  */
 
 import fileCache from './fileCache.js';
-import fileRenderer from './fileRenderer.js';
-import fileHandlers from './fileHandlers.js';
+import fileRenderer from './fileRenderer/index.js';
+import fileHandlers from './fileHandlers/index.js';
 import fileAPI from './fileAPI.js';
 import fileUtils from './fileUtils.js';
 

@@ -3,45 +3,53 @@
 /* Base transitions for theme changes */
 .file-item {
     transition: 
-        background-color 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), 
-        color 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), 
-        transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), 
-        box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.2, 1),
-        padding 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), 
-        margin 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+        background-color 0.2s ease, 
+        color 0.2s ease, 
+        transform 0.2s ease, 
+        box-shadow 0.2s ease,
+        padding 0.2s ease, 
+        margin 0.2s ease;
     will-change: transform, background-color;
 }
 
 /* Text specific transitions */
 .file-details h3 {
     transition: 
-        color 0.2s cubic-bezier(0.4, 0.0, 0.2, 1),
-        transform 0.3s cubic-bezier(0.1, 0.7, 0.1, 1),
-        font-size 0.3s cubic-bezier(0.1, 0.7, 0.1, 1);
-    will-change: transform, font-size;
+        color 0.2s ease,
+        transform 0.3s ease;
+    will-change: transform;
 }
 
-.file-details p {
+/* Modified info transitions */
+.modified-info {
     transition: 
-        color 0.2s cubic-bezier(0.4, 0.0, 0.2, 1),
-        opacity 0.25s cubic-bezier(0.4, 0.0, 0.2, 1),
-        transform 0.3s cubic-bezier(0.1, 0.7, 0.1, 1),
-        max-height 0.3s cubic-bezier(0.4, 0.0, 0.2, 1),
-        margin 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        color 0.2s ease,
+        opacity 0.25s ease,
+        transform 0.3s ease;
+    will-change: opacity, transform;
+}
+
+.file-description {
+    transition: 
+        color 0.2s ease,
+        opacity 0.25s ease,
+        transform 0.3s ease,
+        max-height 0.3s ease,
+        margin 0.3s ease;
     will-change: opacity, transform, max-height;
 }
 
-/* Icon animations with improved spring effect */
+/* Icon animations with simple ease effect to prevent overshoot */
 .file-icon {
-    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1.2);
+    transition: transform 0.3s ease;
     will-change: transform;
 }
 
 /* Preview content animations */
 .file-preview-content {
     transition: 
-        opacity 0.2s cubic-bezier(0.4, 0.0, 0.2, 1), 
-        max-height 0.35s cubic-bezier(0.33, 1, 0.68, 1),
-        margin-top 0.25s cubic-bezier(0.4, 0.0, 0.2, 1);
-    will-change: opacity, max-height, margin-top;
+        opacity 0.25s ease, 
+        max-height 0.35s ease,
+        margin-top 0.25s ease,
+        visibility 0s linear 0.25s; /* Delay hiding until after fade out */
 }

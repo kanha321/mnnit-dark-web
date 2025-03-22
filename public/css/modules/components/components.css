@@ -1,0 +1,8 @@
+/* Components module entry point */
+
+/* Import all component stylesheets */
+@import url('./file-list.css');
+@import url('./file-item/index.css');
+@import url('./theme-switch.css');
+@import url('./file-preview.css');
+@import url('./file-action-buttons.css');

@@ -32,11 +32,18 @@ function setupThemeToggle() {
         localStorage.setItem('darkMode', isDarkMode);
     });
     
-    // Load saved preference
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    if (savedDarkMode) {
+    // Load saved preference or use dark mode as default
+    const savedDarkMode = localStorage.getItem('darkMode');
+    
+    // If no preference is stored (null) or it's explicitly set to 'true',
+    // enable dark mode (dark mode is default)
+    if (savedDarkMode === null || savedDarkMode === 'true') {
         document.body.classList.add('dark');
         themeToggle.checked = true;
+    } else {
+        // Only if we explicitly have a 'false' value, use light mode
+        document.body.classList.remove('dark');
+        themeToggle.checked = false;
     }
 }
 

@@ -14,7 +14,8 @@ const FILE_TYPES = {
     code: ['.go', '.rb', '.rs', '.swift', '.kt', '.cs', '.sh', '.pl', '.lua'],
     text: ['.txt', '.md', '.log'],
     pdf: ['.pdf'],
-    archive: ['.zip', '.rar', '.tar', '.gz', '.7z']
+    archive: ['.zip', '.rar', '.tar', '.gz', '.7z'],
+    binary: ['.exe', '.dll', '.bin', '.dmg', '.app']
 };
 
 /**
@@ -23,6 +24,8 @@ const FILE_TYPES = {
  * @returns {string} - Type of the file
  */
 function getFileType(fileName) {
+    if (!fileName) return 'unknown';
+    
     const ext = path.extname(fileName).toLowerCase();
     
     // Find file type by extension
@@ -32,8 +35,8 @@ function getFileType(fileName) {
         }
     }
     
-    // Default to text for CS focus
-    return 'text';
+    // Default to binary for unknown types
+    return 'binary';
 }
 
 module.exports = {

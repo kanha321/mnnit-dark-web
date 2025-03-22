@@ -4,14 +4,19 @@
 
 import CONFIG from '../config.js';
 
-// Import file icons config
+// Initialize with empty objects and populate after fetch
 let FILE_ICONS = {};
 let SPECIFIC_FILES = {};
 let FALLBACK_ICON = '';
 
-// Fix the path to ensure the config is properly loaded
-fetch('/public/config/file-icons.json') // This path might need to be updated depending on server config
-    .then(response => response.json())
+// Load file icons configuration
+fetch('/public/config/file-icons.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Failed to load file icons`);
+        }
+        return response.json();
+    })
     .then(data => {
         // Extract icon for each file type
         FILE_ICONS = Object.entries(data.fileTypes).reduce((acc, [type, value]) => {
@@ -20,34 +25,38 @@ fetch('/public/config/file-icons.json') // This path might need to be updated de
         }, {});
         
         SPECIFIC_FILES = data.specificFiles;
-        FALLBACK_ICON = data.fallbackIcon;
-        console.log('File icons loaded');
+        FALLBACK_ICON = data.fallbackIcon || '\uf15b';
+        
+        // Refresh existing icons on the page
+        document.querySelectorAll('.file-icon').forEach(icon => {
+            const fileType = icon.getAttribute('data-file-type');
+            const fileName = icon.getAttribute('data-file-name');
+            if (fileType && fileName) {
+                icon.textContent = getFileIcon(fileType, fileName);
+            }
+        });
     })
     .catch(error => {
-        console.error('Error loading file icons:', error);
-        // Fallback icons if loading fails
+        // Set fallback icons
         FILE_ICONS = {
-            text: '',
-            code: '',
-            python: '',
-            java: '',
-            cpp: '',
-            web: '',
-            data: '',
-            pdf: '',
-            archive: ''
+            text: '\uf15c',
+            code: '\uf1c9',
+            python: '\uf3e2',
+            java: '\uf4e4',
+            cpp: '\uf61d',
+            web: '\uf13b',
+            data: '\uf1c0',
+            pdf: '\uf1c1',
+            archive: '\uf1c6'
         };
-        FALLBACK_ICON = '';
+        FALLBACK_ICON = '\uf15b';
     });
 
-// Simplified previewable types
+// Previewable file types
 const PREVIEWABLE_TYPES = ['text', 'code', 'web', 'python', 'java', 'cpp', 'data'];
 
 /**
  * Returns appropriate icon based on file type and name
- * @param {string} fileType - Type of the file
- * @param {string} fileName - Name of the file
- * @returns {string} - Icon character
  */
 function getFileIcon(fileType, fileName = '') {
     // Check if there's a specific icon for this filename
@@ -61,8 +70,6 @@ function getFileIcon(fileType, fileName = '') {
 
 /**
  * Checks if a file type is previewable
- * @param {string} fileType - Type of the file
- * @returns {boolean} - True if previewable, false otherwise
  */
 function isPreviewable(fileType) {
     return PREVIEWABLE_TYPES.includes(fileType);
@@ -70,9 +77,6 @@ function isPreviewable(fileType) {
 
 /**
  * Comparison function to sort files
- * @param {Object} a - First file
- * @param {Object} b - Second file
- * @returns {number} - Sort order
  */
 function sortFiles(a, b) {
     const isAText = a.type === 'text' || a.type === 'code';
@@ -85,49 +89,14 @@ function sortFiles(a, b) {
 
 /**
  * Get file extension from filename
- * @param {string} fileName - Name of the file
- * @returns {string} - File extension without the dot
  */
 function getFileExtension(fileName) {
     return fileName.split('.').pop().toLowerCase();
-}
-
-/**
- * Get the appropriate icon class for a file
- * @param {string} fileName - Name of the file
- * @returns {string} - CSS class for icon styling
- */
-function getIconClass(fileName, fileType) {
-    const ext = getFileExtension(fileName);
-    
-    // Check for extension-specific classes first
-    switch (ext) {
-        case 'js': return 'icon-js';
-        case 'ts': return 'icon-ts';
-        case 'jsx': return 'icon-jsx';
-        case 'tsx': return 'icon-tsx';
-        case 'html': return 'icon-html';
-        case 'css': return 'icon-css';
-        case 'scss':
-        case 'sass': return 'icon-scss';
-        case 'json': return 'icon-json';
-        case 'md': return 'icon-markdown';
-        case 'py': return 'icon-python';
-        case 'java': return 'icon-java';
-        case 'php': return 'icon-php';
-        // Add more extensions as needed
-    }
-    
-    // Default to file type class
-    return `icon-${fileType}`;
 }
 
 export default {
     getFileIcon,
     isPreviewable,
     sortFiles,
-    FILE_ICONS,
-    PREVIEWABLE_TYPES,
-    getFileExtension,
-    getIconClass
+    getFileExtension
 };

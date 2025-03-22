@@ -5,11 +5,12 @@
 
 const fs = require('fs');
 const path = require('path');
-const fileUtils = require('../utils/file'); // Updated import
+
+// Use absolute require paths to avoid path resolution issues
+const fileUtils = require(path.resolve(__dirname, '../utils/file'));
 
 // Update FILES_DIR to point to the root files directory
 const FILES_DIR = path.resolve(__dirname, '../files');
-console.log('Files directory path:', FILES_DIR); // Add logging for debugging
 
 /**
  * Ensures the files directory exists
@@ -17,9 +18,6 @@ console.log('Files directory path:', FILES_DIR); // Add logging for debugging
 function ensureFilesDirectory() {
     if (!fs.existsSync(FILES_DIR)) {
         fs.mkdirSync(FILES_DIR, { recursive: true });
-        console.log('Created files directory at:', FILES_DIR);
-    } else {
-        console.log('Using existing files directory at:', FILES_DIR);
     }
 }
 
@@ -39,22 +37,39 @@ function getAllFiles() {
             fileList = fileList.filter(fileName => {
                 return !fileName.startsWith('.') && fileName !== '.gitkeep';
             });
-
+            
             const files = fileList.map(fileName => {
                 try {
                     const stats = fs.statSync(path.join(FILES_DIR, fileName));
-                    const fileType = getFileType(fileName);
-                    const mimeType = getMimeType(fileName);
+                    
+                    let fileType, mimeType, formattedSize;
+                    
+                    try {
+                        fileType = fileUtils.getFileType(fileName);
+                    } catch (typeErr) {
+                        fileType = 'unknown';
+                    }
+                    
+                    try {
+                        mimeType = fileUtils.getMimeType(fileName);
+                    } catch (mimeErr) {
+                        mimeType = 'application/octet-stream';
+                    }
+                    
+                    try {
+                        formattedSize = fileUtils.formatFileSize(stats.size);
+                    } catch (sizeErr) {
+                        formattedSize = `${stats.size} bytes`;
+                    }
                     
                     return {
                         name: fileName,
                         type: fileType,
                         mimeType: mimeType,
-                        size: formatFileSize(stats.size),
+                        size: formattedSize,
                         lastModified: new Date(stats.mtime).toISOString().split('T')[0]
                     };
                 } catch (err) {
-                    console.error(`Error reading file stats for ${fileName}:`, err);
                     return {
                         name: fileName,
                         type: 'unknown',

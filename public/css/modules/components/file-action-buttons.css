@@ -1,0 +1,60 @@
+/* File action button styles */
+
+.file-action {
+    display: flex;
+    align-items: center;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 0.5em;
+    font-size: 0.9em;
+}
+
+.file-action:hover {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+}
+
+/* Icon element inside buttons */
+.file-action .icon-element {
+    font-family: 'Symbols Nerd Font' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1em;
+    line-height: 1;
+    display: inline-block;
+}
+
+/* Text element inside buttons */
+.file-action .button-text,
+.file-action span {
+    font-family: 'CookieRun', 'Cookie Run', Arial, sans-serif !important;
+    margin-left: 0.4em;
+}
+
+/* State variations */
+.file-action.copied-state {
+    background-color: #4caf50;
+    color: white;
+}
+
+.file-action.error-state {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Ensure icons maintain correct font in all states */
+.file-action.copied-state .icon-element,
+.file-action.error-state .icon-element {
+    font-family: 'Symbols Nerd Font' !important;
+}
+
+/* Ensure text maintains correct font in all states */
+.file-action.copied-state .button-text,
+.file-action.error-state .button-text {
+    font-family: 'CookieRun', 'Cookie Run', Arial, sans-serif !important;
+}

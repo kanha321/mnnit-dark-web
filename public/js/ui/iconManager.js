@@ -17,6 +17,19 @@ const ICON_MAP = {
     'error': '\uf071',
     'success': '\uf00c',
     
+    // File type icons
+    'text': '\uf15c',
+    'code': '\uf1c9',
+    'python': '\ue73c',
+    'java': '\ue738',
+    'cpp': '\ue61d',
+    'web': '\uf13b',
+    'data': '\uf1c0',
+    'pdf': '\uf1c1',
+    'archive': '\uf1c6',
+    'binary': '\uf471',
+    'unknown': '\uf15b',
+    
     // Add more icons as needed
 };
 
@@ -37,8 +50,12 @@ function createIcon(iconName, className = '') {
     
     // Use innerHTML with HTML entity to prevent raw Unicode display
     const codePoint = ICON_MAP[iconName] || '';
-    const hex = codePoint.codePointAt(0).toString(16);
-    icon.innerHTML = `&#x${hex};`;
+    if (codePoint) {
+        const hex = codePoint.codePointAt(0).toString(16);
+        icon.innerHTML = `&#x${hex};`;
+    } else {
+        icon.innerHTML = '?';
+    }
     
     return icon;
 }

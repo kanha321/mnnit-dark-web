@@ -1,0 +1,36 @@
+/* Common styles that apply across both light and dark themes */
+
+/* Explicitly force font family on all elements */
+body,
+h1, h2, h3, h4, h5, h6,
+p, span, div,
+button, input, select, textarea,
+a, li, ul, ol {
+    font-family: 'CookieRun', 'Cookie Run', Arial, sans-serif;
+}
+
+/* Class to apply after fonts are confirmed loaded */
+.fonts-applied * {
+    font-family: 'CookieRun', 'Cookie Run', Arial, sans-serif !important;
+}
+
+/* Exceptions for icon fonts */
+.file-icon, 
+[class^="icon-"], 
+[class*=" icon-"],
+.icon-element,
+.theme-icon {
+    font-family: 'Symbols Nerd Font' !important;
+}
+
+/* Exceptions for code fonts - use JetBrains Mono */
+pre, code, 
+.file-preview-content pre,
+.code-block,
+.preview-content pre,
+.preview-dialog .preview-content pre,
+[class*="code-"] {
+    font-family: 'JetBrains Mono', var(--font-family-code) !important;
+    font-size: 0.9em;
+    line-height: 1.5;
+}

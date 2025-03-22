@@ -27,9 +27,10 @@
     justify-content: center;
     min-height: 40px;
     padding: 0.2em 0;
+    min-width: 0; /* Allow content to shrink if needed */
 }
 
-/* File name should always truncate with ellipsis when needed */
+/* File name should truncate with ellipsis when needed */
 .file-details h3 {
     white-space: nowrap;
     overflow: hidden;
@@ -37,17 +38,39 @@
     font-size: 1.1em; /* Consistent font size across screen sizes */
     line-height: 1.2;
     margin: 0 0 0.25em 0;
+    min-width: 0; /* Allow text to shrink */
 }
 
-/* Allow file details to wrap to multiple lines */
-.file-details p {
-    white-space: normal; /* Allow text to wrap naturally */
-    overflow: visible;
-    text-overflow: clip;
+/* Description text with size and modified date */
+.file-description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     line-height: 1.4;
-    margin: 0.2em 0;
+    margin: 0.2em 0 0 0;
     font-size: 0.9em; /* Consistent font size across screen sizes */
     color: var(--md-sys-color-on-surface-variant); /* Slightly muted color for metadata */
+}
+
+/* Separator between size and modified info */
+.size-modified-separator {
+    margin: 0 0.4em;
+    color: var(--md-sys-color-outline-variant);
+    opacity: 0.7;
+}
+
+/* Modified info - appears after size */
+.modified-info {
+    white-space: nowrap;
+    color: var(--md-sys-color-on-surface-variant);
+    transition: opacity 0.2s ease;
+}
+
+/* Hide modified info when space is constrained */
+@media (max-width: 480px) {
+    .modified-info, .size-modified-separator {
+        display: none;
+    }
 }
 
 /* File actions container */

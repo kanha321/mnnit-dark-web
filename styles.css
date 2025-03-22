@@ -4,6 +4,7 @@
 @import url('./public/css/modules/fonts.css');
 
 /* Material theme variables before base styles */
+@import url('./public/css/material-theme/common.css');
 @import url('./public/css/material-theme/light.css');
 @import url('./public/css/material-theme/dark.css');
 
@@ -24,3 +25,8 @@
 
 /* Media queries for responsiveness - now using modular approach */
 @import url('./public/css/modules/mediaqueries/index.css');
+
+/* Ensure font is applied */
+html, body {
+    font-family: 'CookieRun', 'Cookie Run', Arial, sans-serif;
+}
